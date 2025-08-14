@@ -46,7 +46,6 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit/cmake_install.cmake")
   include("/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/integration/cmake_install.cmake")
-  include("/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/performance/cmake_install.cmake")
 
 endif()
 

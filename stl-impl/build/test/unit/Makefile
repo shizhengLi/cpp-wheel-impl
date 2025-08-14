@@ -127,20 +127,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-test/unit/CMakeFiles/CMakeCXXCompilerId.dir/rule:
-	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/CMakeCXXCompilerId.dir/rule
-.PHONY : test/unit/CMakeFiles/CMakeCXXCompilerId.dir/rule
-
-# Convenience name for target.
-CMakeCXXCompilerId: test/unit/CMakeFiles/CMakeCXXCompilerId.dir/rule
-.PHONY : CMakeCXXCompilerId
-
-# fast build rule for target.
-CMakeCXXCompilerId/fast:
-	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/CMakeCXXCompilerId.dir/build.make test/unit/CMakeFiles/CMakeCXXCompilerId.dir/build
-.PHONY : CMakeCXXCompilerId/fast
-
-# Convenience name for target.
 test/unit/CMakeFiles/allocator_test.dir/rule:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/allocator_test.dir/rule
 .PHONY : test/unit/CMakeFiles/allocator_test.dir/rule
@@ -211,6 +197,20 @@ minimal_deque_test/fast:
 .PHONY : minimal_deque_test/fast
 
 # Convenience name for target.
+test/unit/CMakeFiles/queue_test.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/queue_test.dir/rule
+.PHONY : test/unit/CMakeFiles/queue_test.dir/rule
+
+# Convenience name for target.
+queue_test: test/unit/CMakeFiles/queue_test.dir/rule
+.PHONY : queue_test
+
+# fast build rule for target.
+queue_test/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/queue_test.dir/build.make test/unit/CMakeFiles/queue_test.dir/build
+.PHONY : queue_test/fast
+
+# Convenience name for target.
 test/unit/CMakeFiles/stack_test.dir/rule:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/stack_test.dir/rule
 .PHONY : test/unit/CMakeFiles/stack_test.dir/rule
@@ -237,30 +237,6 @@ vector_test: test/unit/CMakeFiles/vector_test.dir/rule
 vector_test/fast:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/vector_test.dir/build.make test/unit/CMakeFiles/vector_test.dir/build
 .PHONY : vector_test/fast
-
-CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.o: CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.o
-.PHONY : CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.o
-
-# target to build an object file
-CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.o:
-	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/CMakeCXXCompilerId.dir/build.make test/unit/CMakeFiles/CMakeCXXCompilerId.dir/CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.o
-.PHONY : CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.o
-
-CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.i: CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.i
-.PHONY : CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.i
-
-# target to preprocess a source file
-CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.i:
-	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/CMakeCXXCompilerId.dir/build.make test/unit/CMakeFiles/CMakeCXXCompilerId.dir/CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.i
-.PHONY : CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.i
-
-CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.s: CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
-.PHONY : CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.s
-
-# target to generate assembly for a file
-CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.s:
-	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/CMakeCXXCompilerId.dir/build.make test/unit/CMakeFiles/CMakeCXXCompilerId.dir/CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
-.PHONY : CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
 
 allocator_test.o: allocator_test.cpp.o
 .PHONY : allocator_test.o
@@ -382,6 +358,30 @@ minimal_deque_test.cpp.s:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/minimal_deque_test.dir/build.make test/unit/CMakeFiles/minimal_deque_test.dir/minimal_deque_test.cpp.s
 .PHONY : minimal_deque_test.cpp.s
 
+queue_test.o: queue_test.cpp.o
+.PHONY : queue_test.o
+
+# target to build an object file
+queue_test.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/queue_test.dir/build.make test/unit/CMakeFiles/queue_test.dir/queue_test.cpp.o
+.PHONY : queue_test.cpp.o
+
+queue_test.i: queue_test.cpp.i
+.PHONY : queue_test.i
+
+# target to preprocess a source file
+queue_test.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/queue_test.dir/build.make test/unit/CMakeFiles/queue_test.dir/queue_test.cpp.i
+.PHONY : queue_test.cpp.i
+
+queue_test.s: queue_test.cpp.s
+.PHONY : queue_test.s
+
+# target to generate assembly for a file
+queue_test.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/queue_test.dir/build.make test/unit/CMakeFiles/queue_test.dir/queue_test.cpp.s
+.PHONY : queue_test.cpp.s
+
 stack_test.o: stack_test.cpp.o
 .PHONY : stack_test.o
 
@@ -439,17 +439,14 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... CMakeCXXCompilerId"
 	@echo "... allocator_test"
 	@echo "... functional_test"
 	@echo "... iterator_test"
 	@echo "... list_test"
 	@echo "... minimal_deque_test"
+	@echo "... queue_test"
 	@echo "... stack_test"
 	@echo "... vector_test"
-	@echo "... CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.o"
-	@echo "... CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.i"
-	@echo "... CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.s"
 	@echo "... allocator_test.o"
 	@echo "... allocator_test.i"
 	@echo "... allocator_test.s"
@@ -465,6 +462,9 @@ help:
 	@echo "... minimal_deque_test.o"
 	@echo "... minimal_deque_test.i"
 	@echo "... minimal_deque_test.s"
+	@echo "... queue_test.o"
+	@echo "... queue_test.i"
+	@echo "... queue_test.s"
 	@echo "... stack_test.o"
 	@echo "... stack_test.i"
 	@echo "... stack_test.s"

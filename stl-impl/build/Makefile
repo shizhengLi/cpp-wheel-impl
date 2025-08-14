@@ -127,19 +127,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named CMakeCXXCompilerId
-
-# Build rule for target.
-CMakeCXXCompilerId: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeCXXCompilerId
-.PHONY : CMakeCXXCompilerId
-
-# fast build rule for target.
-CMakeCXXCompilerId/fast:
-	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/CMakeCXXCompilerId.dir/build.make test/unit/CMakeFiles/CMakeCXXCompilerId.dir/build
-.PHONY : CMakeCXXCompilerId/fast
-
-#=============================================================================
 # Target rules for targets named allocator_test
 
 # Build rule for target.
@@ -205,6 +192,19 @@ minimal_deque_test/fast:
 .PHONY : minimal_deque_test/fast
 
 #=============================================================================
+# Target rules for targets named queue_test
+
+# Build rule for target.
+queue_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 queue_test
+.PHONY : queue_test
+
+# fast build rule for target.
+queue_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/queue_test.dir/build.make test/unit/CMakeFiles/queue_test.dir/build
+.PHONY : queue_test/fast
+
+#=============================================================================
 # Target rules for targets named stack_test
 
 # Build rule for target.
@@ -239,12 +239,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... CMakeCXXCompilerId"
 	@echo "... allocator_test"
 	@echo "... functional_test"
 	@echo "... iterator_test"
 	@echo "... list_test"
 	@echo "... minimal_deque_test"
+	@echo "... queue_test"
 	@echo "... stack_test"
 	@echo "... vector_test"
 .PHONY : help
