@@ -297,6 +297,8 @@ test/unit/CMakeFiles/priority_queue_test.dir/priority_queue_test.cpp.o: \
  /usr/include/c++/11/bits/ranges_util.h \
  /usr/include/c++/11/pstl/glue_algorithm_defs.h \
  /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/include/stl/adapter/../algorithm/heap.hpp \
+ /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/include/stl/adapter/../algorithm/../iterator.hpp \
+ /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/include/stl/adapter/../algorithm/basic.hpp \
  /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/include/stl/deque.hpp \
  /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/include/stl/allocator.hpp \
  /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/include/stl/iterator.hpp

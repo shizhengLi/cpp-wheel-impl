@@ -140,7 +140,7 @@ public:
         return table_.insert(value).first;
     }
     
-    iterator insert(const_iterator hint, value_type&& value) {
+    iterator insert([[maybe_unused]] const_iterator hint, value_type&& value) {
         // 忽略hint，直接插入
         return table_.insert(std::move(value)).first;
     }
@@ -162,7 +162,7 @@ public:
     }
     
     template <typename... Args>
-    iterator emplace_hint(const_iterator hint, Args&&... args) {
+    iterator emplace_hint([[maybe_unused]] const_iterator hint, Args&&... args) {
         // 忽略hint，直接插入
         return table_.emplace(std::forward<Args>(args)...).first;
     }
@@ -216,7 +216,7 @@ public:
     size_type bucket_count() const { return table_.bucket_count(); }
     size_type max_bucket_count() const { return table_.max_bucket_count(); }
     
-    size_type bucket_size(size_type n) const {
+    size_type bucket_size([[maybe_unused]] size_type n) const {
         size_type count = 0;
         auto range = equal_range(*begin()); // 简化实现
         for (auto it = range.first; it != range.second; ++it) {
@@ -229,27 +229,27 @@ public:
         return table_.hash_function()(key) % bucket_count();
     }
     
-    local_iterator begin(size_type n) {
+    local_iterator begin([[maybe_unused]] size_type n) {
         return begin(); // 简化实现
     }
     
-    const_local_iterator begin(size_type n) const {
+    const_local_iterator begin([[maybe_unused]] size_type n) const {
         return begin(); // 简化实现
     }
     
-    local_iterator end(size_type n) {
+    local_iterator end([[maybe_unused]] size_type n) {
         return end(); // 简化实现
     }
     
-    const_local_iterator end(size_type n) const {
+    const_local_iterator end([[maybe_unused]] size_type n) const {
         return end(); // 简化实现
     }
     
-    const_local_iterator cbegin(size_type n) const {
+    const_local_iterator cbegin([[maybe_unused]] size_type n) const {
         return begin(); // 简化实现
     }
     
-    const_local_iterator cend(size_type n) const {
+    const_local_iterator cend([[maybe_unused]] size_type n) const {
         return end(); // 简化实现
     }
     

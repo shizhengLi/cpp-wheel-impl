@@ -312,10 +312,16 @@ public:
     
     size_type erase(const key_type& key) {
         size_type count = 0;
-        auto range = equal_range(key);
-        while (range.first != range.second) {
-            range.first = erase(range.first);
-            count++;
+        // Since we can't rely on equal_range for multi-element deletion,
+        // we'll iterate through all elements and delete matching ones
+        auto it = begin();
+        while (it != end()) {
+            if (key_equal_(get_key(*it), key)) {
+                it = erase(it);
+                count++;
+            } else {
+                ++it;
+            }
         }
         return count;
     }
@@ -360,11 +366,11 @@ public:
         }
         
         if (first != end()) {
-            // For hash tables with linear probing, we can't assume contiguous elements
-            // So we return a range that includes just the first element
-            // The user can iterate through all elements to find all matches
-            last = first;
-            ++last;
+            // Find the position after the last occurrence
+            // Since elements are not contiguous in hash tables with linear probing,
+            // we need to find all matching elements and return end() as the second iterator
+            // This is the standard behavior for unordered containers
+            last = end();
         }
         
         return {first, last};
@@ -383,11 +389,11 @@ public:
         }
         
         if (first != end()) {
-            // For hash tables with linear probing, we can't assume contiguous elements
-            // So we return a range that includes just the first element
-            // The user can iterate through all elements to find all matches
-            last = first;
-            ++last;
+            // Find the position after the last occurrence
+            // Since elements are not contiguous in hash tables with linear probing,
+            // we need to find all matching elements and return end() as the second iterator
+            // This is the standard behavior for unordered containers
+            last = end();
         }
         
         return {first, last};

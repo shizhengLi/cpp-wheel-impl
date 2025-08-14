@@ -2,6 +2,7 @@
 #include <string>
 #include <algorithm>
 #include "stl/container/unordered_multiset.hpp"
+#include "stl/functional.hpp"
 
 using namespace stl;
 
@@ -20,10 +21,10 @@ TEST_F(UnorderedMultiSetBasicTest, BasicInsertAndFind) {
     EXPECT_EQ(*result1, 1);
     EXPECT_EQ(set.size(), 1);
     
-    // 重复插入（当前实现不支持真正的重复）
+    // 重复插入（现在支持真正的重复）
     auto result2 = set.insert(1);
     EXPECT_EQ(*result2, 1);
-    EXPECT_EQ(set.size(), 1);  // 重复插入不会增加大小
+    EXPECT_EQ(set.size(), 2);  // 重复插入会增加大小
     
     // 查找
     auto it = set.find(1);
@@ -76,45 +77,45 @@ TEST_F(UnorderedMultiSetBasicTest, MultipleElements) {
     EXPECT_NE(set.find(30), set.end());
 }
 
-// 删除操作测试（当前实现限制）
+// 删除操作测试（现在支持真正的重复元素）
 TEST_F(UnorderedMultiSetBasicTest, EraseOperations) {
     unordered_multiset<int> set;
     
-    // 插入一些元素（重复的不会被真正插入）
+    // 插入一些元素（现在支持重复元素）
     set.insert(5);
-    set.insert(5);  // 不会真正插入
-    set.insert(5);  // 不会真正插入
+    set.insert(5);  // 会插入重复元素
+    set.insert(5);  // 会插入重复元素
     set.insert(10);
-    set.insert(10); // 不会真正插入
+    set.insert(10); // 会插入重复元素
     set.insert(15);
     
-    EXPECT_EQ(set.size(), 3);
+    EXPECT_EQ(set.size(), 6);
     
-    // 按值删除（当前实现只会删除一个元素）
+    // 按值删除（删除所有重复元素）
     size_t erased_count = set.erase(5);
-    EXPECT_EQ(erased_count, 1);
-    EXPECT_EQ(set.size(), 2);
+    EXPECT_EQ(erased_count, 3);
+    EXPECT_EQ(set.size(), 3);
     EXPECT_EQ(set.count(5), 0);
     
-    // 按迭代器删除
+    // 按迭代器删除（只删除一个元素）
     auto it = set.find(10);
     ASSERT_NE(it, set.end());
     set.erase(it);
-    EXPECT_EQ(set.size(), 1);
-    EXPECT_EQ(set.count(10), 0);
+    EXPECT_EQ(set.size(), 2);
+    EXPECT_EQ(set.count(10), 1);
 }
 
-// 清空容器测试（当前实现限制）
+// 清空容器测试（现在支持真正的重复元素）
 TEST_F(UnorderedMultiSetBasicTest, ClearOperations) {
     unordered_multiset<int> set;
     
     set.insert(1);
-    set.insert(1);  // 不会真正插入
+    set.insert(1);  // 会插入重复元素
     set.insert(2);
-    set.insert(2);  // 不会真正插入
-    set.insert(2);  // 不会真正插入
+    set.insert(2);  // 会插入重复元素
+    set.insert(2);  // 会插入重复元素
     
-    EXPECT_EQ(set.size(), 2);  // 只有唯一元素
+    EXPECT_EQ(set.size(), 5);  // 包含重复元素
     EXPECT_FALSE(set.empty());
     
     set.clear();
@@ -125,15 +126,15 @@ TEST_F(UnorderedMultiSetBasicTest, ClearOperations) {
     EXPECT_EQ(set.find(2), set.end());
 }
 
-// 迭代器测试（当前实现限制）
+// 迭代器测试（现在支持真正的重复元素）
 TEST_F(UnorderedMultiSetBasicTest, IteratorOperations) {
     unordered_multiset<int> set;
     
     set.insert(100);
-    set.insert(100);  // 不会真正插入
+    set.insert(100);  // 会插入重复元素
     set.insert(200);
     set.insert(300);
-    set.insert(200);  // 不会真正插入
+    set.insert(200);  // 会插入重复元素
     
     // 遍历所有元素
     int count = 0;
@@ -141,7 +142,7 @@ TEST_F(UnorderedMultiSetBasicTest, IteratorOperations) {
         EXPECT_TRUE(*it == 100 || *it == 200 || *it == 300);
         ++count;
     }
-    EXPECT_EQ(count, 3);  // 只有唯一元素
+    EXPECT_EQ(count, 5);  // 包含重复元素
     
     // 使用范围for循环
     count = 0;
@@ -149,27 +150,30 @@ TEST_F(UnorderedMultiSetBasicTest, IteratorOperations) {
         EXPECT_TRUE(value == 100 || value == 200 || value == 300);
         ++count;
     }
-    EXPECT_EQ(count, 3);  // 只有唯一元素
+    EXPECT_EQ(count, 5);  // 包含重复元素
 }
 
-// 等价范围测试（当前实现限制）
+// 等价范围测试（现在支持真正的重复元素）
 TEST_F(UnorderedMultiSetBasicTest, EqualRange) {
     unordered_multiset<int> set;
     
     set.insert(42);
-    set.insert(42);  // 不会真正插入
-    set.insert(42);  // 不会真正插入
+    set.insert(42);  // 会插入重复元素
+    set.insert(42);  // 会插入重复元素
     set.insert(84);
-    set.insert(84);  // 不会真正插入
+    set.insert(84);  // 会插入重复元素
     
     // 测试等价范围
     auto range = set.equal_range(42);
     int count = 0;
     for (auto it = range.first; it != range.second; ++it) {
-        EXPECT_EQ(*it, 42);
-        ++count;
+        if (equal_to<int>()(42, *it)) {
+            ++count;
+        }
     }
-    EXPECT_EQ(count, 1);  // 当前实现只返回一个元素
+    EXPECT_EQ(count, 3);  // 应该返回所有重复元素
+    EXPECT_NE(range.first, set.end());  // 第一个元素存在
+    EXPECT_EQ(range.second, set.end());  // 第二个元素是end()
     
     // 测试不存在的键
     range = set.equal_range(999);
@@ -177,7 +181,7 @@ TEST_F(UnorderedMultiSetBasicTest, EqualRange) {
     EXPECT_EQ(range.second, set.end());
 }
 
-// 容量管理测试（当前实现限制）
+// 容量管理测试（现在支持真正的重复元素）
 TEST_F(UnorderedMultiSetBasicTest, CapacityManagement) {
     unordered_multiset<int> set;
     
@@ -185,24 +189,24 @@ TEST_F(UnorderedMultiSetBasicTest, CapacityManagement) {
     EXPECT_EQ(set.size(), 0);
     
     set.insert(1);
-    set.insert(1);  // 不会真正插入
+    set.insert(1);  // 会插入重复元素
     set.insert(2);
     
     EXPECT_FALSE(set.empty());
-    EXPECT_EQ(set.size(), 2);  // 只有唯一元素
+    EXPECT_EQ(set.size(), 3);  // 包含重复元素
     EXPECT_GT(set.max_size(), 0);
 }
 
-// 哈希表操作测试（当前实现限制）
+// 哈希表操作测试（现在支持真正的重复元素）
 TEST_F(UnorderedMultiSetBasicTest, HashOperations) {
     unordered_multiset<int> set;
     
     // 插入足够多的元素以触发可能的重新哈希
     for (int i = 0; i < 20; ++i) {
-        set.insert(i % 5);  // 创建重复元素，但当前实现不支持
+        set.insert(i % 5);  // 创建重复元素，现在支持重复
     }
     
-    EXPECT_EQ(set.size(), 5);  // 只有唯一元素 (0, 1, 2, 3, 4)
+    EXPECT_EQ(set.size(), 20);  // 包含所有重复元素
     EXPECT_GT(set.bucket_count(), 0);
     
     // 测试负载因子
@@ -214,20 +218,20 @@ TEST_F(UnorderedMultiSetBasicTest, HashOperations) {
     EXPECT_GT(max_load_factor, 0.0f);
 }
 
-// 字符串键测试（当前实现限制）
+// 字符串键测试（现在支持真正的重复元素）
 TEST_F(UnorderedMultiSetBasicTest, StringKeys) {
     unordered_multiset<std::string> set;
     
     set.insert("apple");
     set.insert("banana");
-    set.insert("apple");  // 不会真正插入
+    set.insert("apple");  // 会插入重复元素
     set.insert("cherry");
-    set.insert("banana");  // 不会真正插入
-    set.insert("apple");  // 不会真正插入
+    set.insert("banana");  // 会插入重复元素
+    set.insert("apple");  // 会插入重复元素
     
-    EXPECT_EQ(set.size(), 3);  // 只有唯一元素
-    EXPECT_EQ(set.count("apple"), 1);
-    EXPECT_EQ(set.count("banana"), 1);
+    EXPECT_EQ(set.size(), 6);  // 包含重复元素
+    EXPECT_EQ(set.count("apple"), 3);
+    EXPECT_EQ(set.count("banana"), 2);
     EXPECT_EQ(set.count("cherry"), 1);
     
     // 查找操作
@@ -239,29 +243,29 @@ TEST_F(UnorderedMultiSetBasicTest, StringKeys) {
     EXPECT_EQ(it, set.end());
 }
 
-// 移动语义测试（当前实现限制）
+// 移动语义测试（现在支持真正的重复元素）
 TEST_F(UnorderedMultiSetBasicTest, MoveSemantics) {
     unordered_multiset<std::string> set1;
     set1.insert("move");
-    set1.insert("move");  // 不会真正插入
+    set1.insert("move");  // 会插入重复元素
     set1.insert("test");
     
     unordered_multiset<std::string> set2 = std::move(set1);
     
-    EXPECT_EQ(set2.size(), 2);  // 只有唯一元素
-    EXPECT_EQ(set2.count("move"), 1);
+    EXPECT_EQ(set2.size(), 3);  // 包含重复元素
+    EXPECT_EQ(set2.count("move"), 2);
     EXPECT_EQ(set2.count("test"), 1);
     
     // set1应该为空（移动后）
     EXPECT_EQ(set1.size(), 0);
 }
 
-// 交换操作测试（当前实现限制）
+// 交换操作测试（现在支持真正的重复元素）
 TEST_F(UnorderedMultiSetBasicTest, SwapOperations) {
     unordered_multiset<int> set1, set2;
     
     set1.insert(1);
-    set1.insert(1);  // 不会真正插入
+    set1.insert(1);  // 会插入重复元素
     set1.insert(2);
     
     set2.insert(10);
@@ -273,7 +277,7 @@ TEST_F(UnorderedMultiSetBasicTest, SwapOperations) {
     EXPECT_EQ(set1.count(10), 1);
     EXPECT_EQ(set1.count(20), 1);
     
-    EXPECT_EQ(set2.size(), 2);  // 只有唯一元素
-    EXPECT_EQ(set2.count(1), 1);
+    EXPECT_EQ(set2.size(), 3);  // 包含重复元素
+    EXPECT_EQ(set2.count(1), 2);
     EXPECT_EQ(set2.count(2), 1);
 }

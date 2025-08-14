@@ -127,6 +127,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named algorithm_test
+
+# Build rule for target.
+algorithm_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 algorithm_test
+.PHONY : algorithm_test
+
+# fast build rule for target.
+algorithm_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/algorithm_test.dir/build.make test/unit/CMakeFiles/algorithm_test.dir/build
+.PHONY : algorithm_test/fast
+
+#=============================================================================
 # Target rules for targets named allocator_test
 
 # Build rule for target.
@@ -151,6 +164,32 @@ functional_test: cmake_check_build_system
 functional_test/fast:
 	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/functional_test.dir/build.make test/unit/CMakeFiles/functional_test.dir/build
 .PHONY : functional_test/fast
+
+#=============================================================================
+# Target rules for targets named hash_table_basic_test
+
+# Build rule for target.
+hash_table_basic_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hash_table_basic_test
+.PHONY : hash_table_basic_test
+
+# fast build rule for target.
+hash_table_basic_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/hash_table_basic_test.dir/build.make test/unit/CMakeFiles/hash_table_basic_test.dir/build
+.PHONY : hash_table_basic_test/fast
+
+#=============================================================================
+# Target rules for targets named hash_table_test
+
+# Build rule for target.
+hash_table_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hash_table_test
+.PHONY : hash_table_test
+
+# fast build rule for target.
+hash_table_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/hash_table_test.dir/build.make test/unit/CMakeFiles/hash_table_test.dir/build
+.PHONY : hash_table_test/fast
 
 #=============================================================================
 # Target rules for targets named iterator_test
@@ -296,6 +335,97 @@ stack_test/fast:
 .PHONY : stack_test/fast
 
 #=============================================================================
+# Target rules for targets named test_include
+
+# Build rule for target.
+test_include: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_include
+.PHONY : test_include
+
+# fast build rule for target.
+test_include/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/test_include.dir/build.make test/unit/CMakeFiles/test_include.dir/build
+.PHONY : test_include/fast
+
+#=============================================================================
+# Target rules for targets named unordered_map_basic_test
+
+# Build rule for target.
+unordered_map_basic_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 unordered_map_basic_test
+.PHONY : unordered_map_basic_test
+
+# fast build rule for target.
+unordered_map_basic_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_map_basic_test.dir/build.make test/unit/CMakeFiles/unordered_map_basic_test.dir/build
+.PHONY : unordered_map_basic_test/fast
+
+#=============================================================================
+# Target rules for targets named unordered_map_test
+
+# Build rule for target.
+unordered_map_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 unordered_map_test
+.PHONY : unordered_map_test
+
+# fast build rule for target.
+unordered_map_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_map_test.dir/build.make test/unit/CMakeFiles/unordered_map_test.dir/build
+.PHONY : unordered_map_test/fast
+
+#=============================================================================
+# Target rules for targets named unordered_multimap_basic_test
+
+# Build rule for target.
+unordered_multimap_basic_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 unordered_multimap_basic_test
+.PHONY : unordered_multimap_basic_test
+
+# fast build rule for target.
+unordered_multimap_basic_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_multimap_basic_test.dir/build.make test/unit/CMakeFiles/unordered_multimap_basic_test.dir/build
+.PHONY : unordered_multimap_basic_test/fast
+
+#=============================================================================
+# Target rules for targets named unordered_multiset_basic_test
+
+# Build rule for target.
+unordered_multiset_basic_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 unordered_multiset_basic_test
+.PHONY : unordered_multiset_basic_test
+
+# fast build rule for target.
+unordered_multiset_basic_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_multiset_basic_test.dir/build.make test/unit/CMakeFiles/unordered_multiset_basic_test.dir/build
+.PHONY : unordered_multiset_basic_test/fast
+
+#=============================================================================
+# Target rules for targets named unordered_set_basic_test
+
+# Build rule for target.
+unordered_set_basic_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 unordered_set_basic_test
+.PHONY : unordered_set_basic_test
+
+# fast build rule for target.
+unordered_set_basic_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_set_basic_test.dir/build.make test/unit/CMakeFiles/unordered_set_basic_test.dir/build
+.PHONY : unordered_set_basic_test/fast
+
+#=============================================================================
+# Target rules for targets named unordered_set_test
+
+# Build rule for target.
+unordered_set_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 unordered_set_test
+.PHONY : unordered_set_test
+
+# fast build rule for target.
+unordered_set_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_set_test.dir/build.make test/unit/CMakeFiles/unordered_set_test.dir/build
+.PHONY : unordered_set_test/fast
+
+#=============================================================================
 # Target rules for targets named vector_test
 
 # Build rule for target.
@@ -317,8 +447,11 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... algorithm_test"
 	@echo "... allocator_test"
 	@echo "... functional_test"
+	@echo "... hash_table_basic_test"
+	@echo "... hash_table_test"
 	@echo "... iterator_test"
 	@echo "... list_test"
 	@echo "... map_test"
@@ -330,6 +463,13 @@ help:
 	@echo "... rb_tree_test_simple"
 	@echo "... set_test"
 	@echo "... stack_test"
+	@echo "... test_include"
+	@echo "... unordered_map_basic_test"
+	@echo "... unordered_map_test"
+	@echo "... unordered_multimap_basic_test"
+	@echo "... unordered_multiset_basic_test"
+	@echo "... unordered_set_basic_test"
+	@echo "... unordered_set_test"
 	@echo "... vector_test"
 .PHONY : help
 

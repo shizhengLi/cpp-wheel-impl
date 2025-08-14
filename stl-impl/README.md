@@ -78,6 +78,8 @@ Excellent! The automated testing system is fully operational and comprehensive. 
 
   ✅ 测试结果统计
 
+  make -C build
+
   - 常规STL测试: 14个测试文件 ✅ 217个测试用例全部通过
   - 哈希容器测试: 3个测试文件 ✅ 26个测试用例全部通过
   - 总计: 17个测试文件 ✅ 243个测试用例全部通过

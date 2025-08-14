@@ -174,7 +174,7 @@ public:
         return table_.insert(value).first;
     }
     
-    iterator insert(const_iterator hint, value_type&& value) {
+    iterator insert([[maybe_unused]] const_iterator hint, value_type&& value) {
         // 忽略hint，直接插入
         return table_.insert(std::move(value)).first;
     }
@@ -202,7 +202,7 @@ public:
     }
     
     template <typename... Args>
-    iterator emplace_hint(const_iterator hint, Args&&... args) {
+    iterator emplace_hint([[maybe_unused]] const_iterator hint, Args&&... args) {
         // 忽略hint，直接插入
         return table_.emplace(std::forward<Args>(args)...).first;
     }

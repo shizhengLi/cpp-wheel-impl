@@ -127,6 +127,20 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+test/unit/CMakeFiles/algorithm_test.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/algorithm_test.dir/rule
+.PHONY : test/unit/CMakeFiles/algorithm_test.dir/rule
+
+# Convenience name for target.
+algorithm_test: test/unit/CMakeFiles/algorithm_test.dir/rule
+.PHONY : algorithm_test
+
+# fast build rule for target.
+algorithm_test/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/algorithm_test.dir/build.make test/unit/CMakeFiles/algorithm_test.dir/build
+.PHONY : algorithm_test/fast
+
+# Convenience name for target.
 test/unit/CMakeFiles/allocator_test.dir/rule:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/allocator_test.dir/rule
 .PHONY : test/unit/CMakeFiles/allocator_test.dir/rule
@@ -153,6 +167,34 @@ functional_test: test/unit/CMakeFiles/functional_test.dir/rule
 functional_test/fast:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/functional_test.dir/build.make test/unit/CMakeFiles/functional_test.dir/build
 .PHONY : functional_test/fast
+
+# Convenience name for target.
+test/unit/CMakeFiles/hash_table_basic_test.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/hash_table_basic_test.dir/rule
+.PHONY : test/unit/CMakeFiles/hash_table_basic_test.dir/rule
+
+# Convenience name for target.
+hash_table_basic_test: test/unit/CMakeFiles/hash_table_basic_test.dir/rule
+.PHONY : hash_table_basic_test
+
+# fast build rule for target.
+hash_table_basic_test/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/hash_table_basic_test.dir/build.make test/unit/CMakeFiles/hash_table_basic_test.dir/build
+.PHONY : hash_table_basic_test/fast
+
+# Convenience name for target.
+test/unit/CMakeFiles/hash_table_test.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/hash_table_test.dir/rule
+.PHONY : test/unit/CMakeFiles/hash_table_test.dir/rule
+
+# Convenience name for target.
+hash_table_test: test/unit/CMakeFiles/hash_table_test.dir/rule
+.PHONY : hash_table_test
+
+# fast build rule for target.
+hash_table_test/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/hash_table_test.dir/build.make test/unit/CMakeFiles/hash_table_test.dir/build
+.PHONY : hash_table_test/fast
 
 # Convenience name for target.
 test/unit/CMakeFiles/iterator_test.dir/rule:
@@ -309,6 +351,104 @@ stack_test/fast:
 .PHONY : stack_test/fast
 
 # Convenience name for target.
+test/unit/CMakeFiles/test_include.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/test_include.dir/rule
+.PHONY : test/unit/CMakeFiles/test_include.dir/rule
+
+# Convenience name for target.
+test_include: test/unit/CMakeFiles/test_include.dir/rule
+.PHONY : test_include
+
+# fast build rule for target.
+test_include/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/test_include.dir/build.make test/unit/CMakeFiles/test_include.dir/build
+.PHONY : test_include/fast
+
+# Convenience name for target.
+test/unit/CMakeFiles/unordered_map_basic_test.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/unordered_map_basic_test.dir/rule
+.PHONY : test/unit/CMakeFiles/unordered_map_basic_test.dir/rule
+
+# Convenience name for target.
+unordered_map_basic_test: test/unit/CMakeFiles/unordered_map_basic_test.dir/rule
+.PHONY : unordered_map_basic_test
+
+# fast build rule for target.
+unordered_map_basic_test/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_map_basic_test.dir/build.make test/unit/CMakeFiles/unordered_map_basic_test.dir/build
+.PHONY : unordered_map_basic_test/fast
+
+# Convenience name for target.
+test/unit/CMakeFiles/unordered_map_test.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/unordered_map_test.dir/rule
+.PHONY : test/unit/CMakeFiles/unordered_map_test.dir/rule
+
+# Convenience name for target.
+unordered_map_test: test/unit/CMakeFiles/unordered_map_test.dir/rule
+.PHONY : unordered_map_test
+
+# fast build rule for target.
+unordered_map_test/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_map_test.dir/build.make test/unit/CMakeFiles/unordered_map_test.dir/build
+.PHONY : unordered_map_test/fast
+
+# Convenience name for target.
+test/unit/CMakeFiles/unordered_multimap_basic_test.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/unordered_multimap_basic_test.dir/rule
+.PHONY : test/unit/CMakeFiles/unordered_multimap_basic_test.dir/rule
+
+# Convenience name for target.
+unordered_multimap_basic_test: test/unit/CMakeFiles/unordered_multimap_basic_test.dir/rule
+.PHONY : unordered_multimap_basic_test
+
+# fast build rule for target.
+unordered_multimap_basic_test/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_multimap_basic_test.dir/build.make test/unit/CMakeFiles/unordered_multimap_basic_test.dir/build
+.PHONY : unordered_multimap_basic_test/fast
+
+# Convenience name for target.
+test/unit/CMakeFiles/unordered_multiset_basic_test.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/unordered_multiset_basic_test.dir/rule
+.PHONY : test/unit/CMakeFiles/unordered_multiset_basic_test.dir/rule
+
+# Convenience name for target.
+unordered_multiset_basic_test: test/unit/CMakeFiles/unordered_multiset_basic_test.dir/rule
+.PHONY : unordered_multiset_basic_test
+
+# fast build rule for target.
+unordered_multiset_basic_test/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_multiset_basic_test.dir/build.make test/unit/CMakeFiles/unordered_multiset_basic_test.dir/build
+.PHONY : unordered_multiset_basic_test/fast
+
+# Convenience name for target.
+test/unit/CMakeFiles/unordered_set_basic_test.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/unordered_set_basic_test.dir/rule
+.PHONY : test/unit/CMakeFiles/unordered_set_basic_test.dir/rule
+
+# Convenience name for target.
+unordered_set_basic_test: test/unit/CMakeFiles/unordered_set_basic_test.dir/rule
+.PHONY : unordered_set_basic_test
+
+# fast build rule for target.
+unordered_set_basic_test/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_set_basic_test.dir/build.make test/unit/CMakeFiles/unordered_set_basic_test.dir/build
+.PHONY : unordered_set_basic_test/fast
+
+# Convenience name for target.
+test/unit/CMakeFiles/unordered_set_test.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/unordered_set_test.dir/rule
+.PHONY : test/unit/CMakeFiles/unordered_set_test.dir/rule
+
+# Convenience name for target.
+unordered_set_test: test/unit/CMakeFiles/unordered_set_test.dir/rule
+.PHONY : unordered_set_test
+
+# fast build rule for target.
+unordered_set_test/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_set_test.dir/build.make test/unit/CMakeFiles/unordered_set_test.dir/build
+.PHONY : unordered_set_test/fast
+
+# Convenience name for target.
 test/unit/CMakeFiles/vector_test.dir/rule:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/vector_test.dir/rule
 .PHONY : test/unit/CMakeFiles/vector_test.dir/rule
@@ -321,6 +461,30 @@ vector_test: test/unit/CMakeFiles/vector_test.dir/rule
 vector_test/fast:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/vector_test.dir/build.make test/unit/CMakeFiles/vector_test.dir/build
 .PHONY : vector_test/fast
+
+algorithm_test.o: algorithm_test.cpp.o
+.PHONY : algorithm_test.o
+
+# target to build an object file
+algorithm_test.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/algorithm_test.dir/build.make test/unit/CMakeFiles/algorithm_test.dir/algorithm_test.cpp.o
+.PHONY : algorithm_test.cpp.o
+
+algorithm_test.i: algorithm_test.cpp.i
+.PHONY : algorithm_test.i
+
+# target to preprocess a source file
+algorithm_test.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/algorithm_test.dir/build.make test/unit/CMakeFiles/algorithm_test.dir/algorithm_test.cpp.i
+.PHONY : algorithm_test.cpp.i
+
+algorithm_test.s: algorithm_test.cpp.s
+.PHONY : algorithm_test.s
+
+# target to generate assembly for a file
+algorithm_test.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/algorithm_test.dir/build.make test/unit/CMakeFiles/algorithm_test.dir/algorithm_test.cpp.s
+.PHONY : algorithm_test.cpp.s
 
 allocator_test.o: allocator_test.cpp.o
 .PHONY : allocator_test.o
@@ -369,6 +533,54 @@ functional_test.s: functional_test.cpp.s
 functional_test.cpp.s:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/functional_test.dir/build.make test/unit/CMakeFiles/functional_test.dir/functional_test.cpp.s
 .PHONY : functional_test.cpp.s
+
+hash_table_basic_test.o: hash_table_basic_test.cpp.o
+.PHONY : hash_table_basic_test.o
+
+# target to build an object file
+hash_table_basic_test.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/hash_table_basic_test.dir/build.make test/unit/CMakeFiles/hash_table_basic_test.dir/hash_table_basic_test.cpp.o
+.PHONY : hash_table_basic_test.cpp.o
+
+hash_table_basic_test.i: hash_table_basic_test.cpp.i
+.PHONY : hash_table_basic_test.i
+
+# target to preprocess a source file
+hash_table_basic_test.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/hash_table_basic_test.dir/build.make test/unit/CMakeFiles/hash_table_basic_test.dir/hash_table_basic_test.cpp.i
+.PHONY : hash_table_basic_test.cpp.i
+
+hash_table_basic_test.s: hash_table_basic_test.cpp.s
+.PHONY : hash_table_basic_test.s
+
+# target to generate assembly for a file
+hash_table_basic_test.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/hash_table_basic_test.dir/build.make test/unit/CMakeFiles/hash_table_basic_test.dir/hash_table_basic_test.cpp.s
+.PHONY : hash_table_basic_test.cpp.s
+
+hash_table_test.o: hash_table_test.cpp.o
+.PHONY : hash_table_test.o
+
+# target to build an object file
+hash_table_test.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/hash_table_test.dir/build.make test/unit/CMakeFiles/hash_table_test.dir/hash_table_test.cpp.o
+.PHONY : hash_table_test.cpp.o
+
+hash_table_test.i: hash_table_test.cpp.i
+.PHONY : hash_table_test.i
+
+# target to preprocess a source file
+hash_table_test.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/hash_table_test.dir/build.make test/unit/CMakeFiles/hash_table_test.dir/hash_table_test.cpp.i
+.PHONY : hash_table_test.cpp.i
+
+hash_table_test.s: hash_table_test.cpp.s
+.PHONY : hash_table_test.s
+
+# target to generate assembly for a file
+hash_table_test.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/hash_table_test.dir/build.make test/unit/CMakeFiles/hash_table_test.dir/hash_table_test.cpp.s
+.PHONY : hash_table_test.cpp.s
 
 iterator_test.o: iterator_test.cpp.o
 .PHONY : iterator_test.o
@@ -634,6 +846,174 @@ stack_test.cpp.s:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/stack_test.dir/build.make test/unit/CMakeFiles/stack_test.dir/stack_test.cpp.s
 .PHONY : stack_test.cpp.s
 
+test_include.o: test_include.cpp.o
+.PHONY : test_include.o
+
+# target to build an object file
+test_include.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/test_include.dir/build.make test/unit/CMakeFiles/test_include.dir/test_include.cpp.o
+.PHONY : test_include.cpp.o
+
+test_include.i: test_include.cpp.i
+.PHONY : test_include.i
+
+# target to preprocess a source file
+test_include.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/test_include.dir/build.make test/unit/CMakeFiles/test_include.dir/test_include.cpp.i
+.PHONY : test_include.cpp.i
+
+test_include.s: test_include.cpp.s
+.PHONY : test_include.s
+
+# target to generate assembly for a file
+test_include.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/test_include.dir/build.make test/unit/CMakeFiles/test_include.dir/test_include.cpp.s
+.PHONY : test_include.cpp.s
+
+unordered_map_basic_test.o: unordered_map_basic_test.cpp.o
+.PHONY : unordered_map_basic_test.o
+
+# target to build an object file
+unordered_map_basic_test.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_map_basic_test.dir/build.make test/unit/CMakeFiles/unordered_map_basic_test.dir/unordered_map_basic_test.cpp.o
+.PHONY : unordered_map_basic_test.cpp.o
+
+unordered_map_basic_test.i: unordered_map_basic_test.cpp.i
+.PHONY : unordered_map_basic_test.i
+
+# target to preprocess a source file
+unordered_map_basic_test.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_map_basic_test.dir/build.make test/unit/CMakeFiles/unordered_map_basic_test.dir/unordered_map_basic_test.cpp.i
+.PHONY : unordered_map_basic_test.cpp.i
+
+unordered_map_basic_test.s: unordered_map_basic_test.cpp.s
+.PHONY : unordered_map_basic_test.s
+
+# target to generate assembly for a file
+unordered_map_basic_test.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_map_basic_test.dir/build.make test/unit/CMakeFiles/unordered_map_basic_test.dir/unordered_map_basic_test.cpp.s
+.PHONY : unordered_map_basic_test.cpp.s
+
+unordered_map_test.o: unordered_map_test.cpp.o
+.PHONY : unordered_map_test.o
+
+# target to build an object file
+unordered_map_test.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_map_test.dir/build.make test/unit/CMakeFiles/unordered_map_test.dir/unordered_map_test.cpp.o
+.PHONY : unordered_map_test.cpp.o
+
+unordered_map_test.i: unordered_map_test.cpp.i
+.PHONY : unordered_map_test.i
+
+# target to preprocess a source file
+unordered_map_test.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_map_test.dir/build.make test/unit/CMakeFiles/unordered_map_test.dir/unordered_map_test.cpp.i
+.PHONY : unordered_map_test.cpp.i
+
+unordered_map_test.s: unordered_map_test.cpp.s
+.PHONY : unordered_map_test.s
+
+# target to generate assembly for a file
+unordered_map_test.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_map_test.dir/build.make test/unit/CMakeFiles/unordered_map_test.dir/unordered_map_test.cpp.s
+.PHONY : unordered_map_test.cpp.s
+
+unordered_multimap_basic_test.o: unordered_multimap_basic_test.cpp.o
+.PHONY : unordered_multimap_basic_test.o
+
+# target to build an object file
+unordered_multimap_basic_test.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_multimap_basic_test.dir/build.make test/unit/CMakeFiles/unordered_multimap_basic_test.dir/unordered_multimap_basic_test.cpp.o
+.PHONY : unordered_multimap_basic_test.cpp.o
+
+unordered_multimap_basic_test.i: unordered_multimap_basic_test.cpp.i
+.PHONY : unordered_multimap_basic_test.i
+
+# target to preprocess a source file
+unordered_multimap_basic_test.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_multimap_basic_test.dir/build.make test/unit/CMakeFiles/unordered_multimap_basic_test.dir/unordered_multimap_basic_test.cpp.i
+.PHONY : unordered_multimap_basic_test.cpp.i
+
+unordered_multimap_basic_test.s: unordered_multimap_basic_test.cpp.s
+.PHONY : unordered_multimap_basic_test.s
+
+# target to generate assembly for a file
+unordered_multimap_basic_test.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_multimap_basic_test.dir/build.make test/unit/CMakeFiles/unordered_multimap_basic_test.dir/unordered_multimap_basic_test.cpp.s
+.PHONY : unordered_multimap_basic_test.cpp.s
+
+unordered_multiset_basic_test.o: unordered_multiset_basic_test.cpp.o
+.PHONY : unordered_multiset_basic_test.o
+
+# target to build an object file
+unordered_multiset_basic_test.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_multiset_basic_test.dir/build.make test/unit/CMakeFiles/unordered_multiset_basic_test.dir/unordered_multiset_basic_test.cpp.o
+.PHONY : unordered_multiset_basic_test.cpp.o
+
+unordered_multiset_basic_test.i: unordered_multiset_basic_test.cpp.i
+.PHONY : unordered_multiset_basic_test.i
+
+# target to preprocess a source file
+unordered_multiset_basic_test.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_multiset_basic_test.dir/build.make test/unit/CMakeFiles/unordered_multiset_basic_test.dir/unordered_multiset_basic_test.cpp.i
+.PHONY : unordered_multiset_basic_test.cpp.i
+
+unordered_multiset_basic_test.s: unordered_multiset_basic_test.cpp.s
+.PHONY : unordered_multiset_basic_test.s
+
+# target to generate assembly for a file
+unordered_multiset_basic_test.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_multiset_basic_test.dir/build.make test/unit/CMakeFiles/unordered_multiset_basic_test.dir/unordered_multiset_basic_test.cpp.s
+.PHONY : unordered_multiset_basic_test.cpp.s
+
+unordered_set_basic_test.o: unordered_set_basic_test.cpp.o
+.PHONY : unordered_set_basic_test.o
+
+# target to build an object file
+unordered_set_basic_test.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_set_basic_test.dir/build.make test/unit/CMakeFiles/unordered_set_basic_test.dir/unordered_set_basic_test.cpp.o
+.PHONY : unordered_set_basic_test.cpp.o
+
+unordered_set_basic_test.i: unordered_set_basic_test.cpp.i
+.PHONY : unordered_set_basic_test.i
+
+# target to preprocess a source file
+unordered_set_basic_test.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_set_basic_test.dir/build.make test/unit/CMakeFiles/unordered_set_basic_test.dir/unordered_set_basic_test.cpp.i
+.PHONY : unordered_set_basic_test.cpp.i
+
+unordered_set_basic_test.s: unordered_set_basic_test.cpp.s
+.PHONY : unordered_set_basic_test.s
+
+# target to generate assembly for a file
+unordered_set_basic_test.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_set_basic_test.dir/build.make test/unit/CMakeFiles/unordered_set_basic_test.dir/unordered_set_basic_test.cpp.s
+.PHONY : unordered_set_basic_test.cpp.s
+
+unordered_set_test.o: unordered_set_test.cpp.o
+.PHONY : unordered_set_test.o
+
+# target to build an object file
+unordered_set_test.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_set_test.dir/build.make test/unit/CMakeFiles/unordered_set_test.dir/unordered_set_test.cpp.o
+.PHONY : unordered_set_test.cpp.o
+
+unordered_set_test.i: unordered_set_test.cpp.i
+.PHONY : unordered_set_test.i
+
+# target to preprocess a source file
+unordered_set_test.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_set_test.dir/build.make test/unit/CMakeFiles/unordered_set_test.dir/unordered_set_test.cpp.i
+.PHONY : unordered_set_test.cpp.i
+
+unordered_set_test.s: unordered_set_test.cpp.s
+.PHONY : unordered_set_test.s
+
+# target to generate assembly for a file
+unordered_set_test.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/unordered_set_test.dir/build.make test/unit/CMakeFiles/unordered_set_test.dir/unordered_set_test.cpp.s
+.PHONY : unordered_set_test.cpp.s
+
 vector_test.o: vector_test.cpp.o
 .PHONY : vector_test.o
 
@@ -667,8 +1047,11 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... algorithm_test"
 	@echo "... allocator_test"
 	@echo "... functional_test"
+	@echo "... hash_table_basic_test"
+	@echo "... hash_table_test"
 	@echo "... iterator_test"
 	@echo "... list_test"
 	@echo "... map_test"
@@ -680,13 +1063,29 @@ help:
 	@echo "... rb_tree_test_simple"
 	@echo "... set_test"
 	@echo "... stack_test"
+	@echo "... test_include"
+	@echo "... unordered_map_basic_test"
+	@echo "... unordered_map_test"
+	@echo "... unordered_multimap_basic_test"
+	@echo "... unordered_multiset_basic_test"
+	@echo "... unordered_set_basic_test"
+	@echo "... unordered_set_test"
 	@echo "... vector_test"
+	@echo "... algorithm_test.o"
+	@echo "... algorithm_test.i"
+	@echo "... algorithm_test.s"
 	@echo "... allocator_test.o"
 	@echo "... allocator_test.i"
 	@echo "... allocator_test.s"
 	@echo "... functional_test.o"
 	@echo "... functional_test.i"
 	@echo "... functional_test.s"
+	@echo "... hash_table_basic_test.o"
+	@echo "... hash_table_basic_test.i"
+	@echo "... hash_table_basic_test.s"
+	@echo "... hash_table_test.o"
+	@echo "... hash_table_test.i"
+	@echo "... hash_table_test.s"
 	@echo "... iterator_test.o"
 	@echo "... iterator_test.i"
 	@echo "... iterator_test.s"
@@ -720,6 +1119,27 @@ help:
 	@echo "... stack_test.o"
 	@echo "... stack_test.i"
 	@echo "... stack_test.s"
+	@echo "... test_include.o"
+	@echo "... test_include.i"
+	@echo "... test_include.s"
+	@echo "... unordered_map_basic_test.o"
+	@echo "... unordered_map_basic_test.i"
+	@echo "... unordered_map_basic_test.s"
+	@echo "... unordered_map_test.o"
+	@echo "... unordered_map_test.i"
+	@echo "... unordered_map_test.s"
+	@echo "... unordered_multimap_basic_test.o"
+	@echo "... unordered_multimap_basic_test.i"
+	@echo "... unordered_multimap_basic_test.s"
+	@echo "... unordered_multiset_basic_test.o"
+	@echo "... unordered_multiset_basic_test.i"
+	@echo "... unordered_multiset_basic_test.s"
+	@echo "... unordered_set_basic_test.o"
+	@echo "... unordered_set_basic_test.i"
+	@echo "... unordered_set_basic_test.s"
+	@echo "... unordered_set_test.o"
+	@echo "... unordered_set_test.i"
+	@echo "... unordered_set_test.s"
 	@echo "... vector_test.o"
 	@echo "... vector_test.i"
 	@echo "... vector_test.s"
