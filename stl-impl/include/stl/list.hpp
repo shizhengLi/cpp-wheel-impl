@@ -680,24 +680,21 @@ public:
             return temp;
         }
         
-        iterator& operator--() noexcept {
+        iterator& operator--() {
             if (node_ == nullptr) {
-                // We're at end(), move to last element
-                // This is a special case that requires list access
-                // For now, we'll handle it by finding the tail through traversal
-                // This is not ideal but works for the basic case
-                if (this->node_ == nullptr) {
-                    // We need to handle this case differently
-                    // In a real implementation, we'd need access to the list
-                    // For now, we'll just not move (this is a limitation)
-                    return *this;
-                }
+                // We're at end(), this is an invalid operation for decrement
+                // In a proper STL implementation, this would be undefined behavior
+                // For now, we'll throw an exception to make the issue clear
+                throw std::runtime_error("Cannot decrement end() iterator");
             }
             node_ = node_->prev;
             return *this;
         }
         
-        iterator operator--(int) noexcept {
+        iterator operator--(int) {
+            if (node_ == nullptr) {
+                throw std::runtime_error("Cannot decrement end() iterator");
+            }
             iterator temp = *this;
             node_ = node_->prev;
             return temp;
@@ -748,12 +745,18 @@ public:
             return temp;
         }
         
-        const_iterator& operator--() noexcept {
+        const_iterator& operator--() {
+            if (node_ == nullptr) {
+                throw std::runtime_error("Cannot decrement end() iterator");
+            }
             node_ = node_->prev;
             return *this;
         }
         
-        const_iterator operator--(int) noexcept {
+        const_iterator operator--(int) {
+            if (node_ == nullptr) {
+                throw std::runtime_error("Cannot decrement end() iterator");
+            }
             const_iterator temp = *this;
             node_ = node_->prev;
             return temp;

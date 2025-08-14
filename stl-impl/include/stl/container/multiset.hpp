@@ -161,17 +161,13 @@ public:
     }
     
     iterator erase(const_iterator pos) {
-        // 简化的实现：找到键并删除
-        key_type key = *pos;
-        tree_.erase(tree_.find(key));
-        return tree_.lower_bound(key);
+        // 直接委托给树的erase方法
+        return tree_.erase(pos);
     }
     
     iterator erase(iterator pos) {
-        // 简化的实现：找到键并删除
-        key_type key = *pos;
-        tree_.erase(tree_.find(key));
-        return tree_.lower_bound(key);
+        // 直接委托给树的erase方法
+        return tree_.erase(pos);
     }
     
     iterator erase(const_iterator first, const_iterator last) {
@@ -184,9 +180,9 @@ public:
     
     size_type erase(const key_type& key) {
         size_type count = 0;
-        auto range = equal_range(key);
-        while (range.first != range.second) {
-            range.first = erase(range.first);
+        auto it = lower_bound(key);
+        while (it != end() && *it == key) {
+            it = erase(it);
             count++;
         }
         return count;

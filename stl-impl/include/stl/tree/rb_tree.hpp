@@ -80,6 +80,10 @@ public:
     }
     
     rb_tree_iterator& operator--() {
+        if (!node_) {
+            // We're at end(), this is undefined behavior for decrement
+            throw std::runtime_error("Cannot decrement end() iterator");
+        }
         if (node_->left) {
             node_ = node_->left;
             while (node_->right) {
@@ -97,6 +101,9 @@ public:
     }
     
     rb_tree_iterator operator--(int) {
+        if (!node_) {
+            throw std::runtime_error("Cannot decrement end() iterator");
+        }
         rb_tree_iterator temp = *this;
         --(*this);
         return temp;
