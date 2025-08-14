@@ -34,41 +34,40 @@ TEST_F(UnorderedMultiSetBasicTest, BasicInsertAndFind) {
     EXPECT_EQ(set.find(999), set.end());
 }
 
-// 重复元素处理测试（当前实现限制）
+// 重复元素处理测试（现在支持真正的重复元素）
 TEST_F(UnorderedMultiSetBasicTest, DuplicateElements) {
     unordered_multiset<std::string> set;
     
-    // 注意：当前实现不支持真正的重复元素
-    // 这是hash_table实现的限制
+    // 插入重复元素，现在应该支持
     set.insert("hello");
-    set.insert("hello");  // 不会真正插入重复元素
-    set.insert("hello");  // 不会真正插入重复元素
+    set.insert("hello");  // 会插入重复元素
+    set.insert("hello");  // 会插入重复元素
     set.insert("world");
-    set.insert("world");  // 不会真正插入重复元素
+    set.insert("world");  // 会插入重复元素
     
-    EXPECT_EQ(set.size(), 2);  // 只有唯一元素
+    EXPECT_EQ(set.size(), 5);  // 包含重复元素
     
-    // 检查元素是否存在
-    EXPECT_EQ(set.count("hello"), 1);
-    EXPECT_EQ(set.count("world"), 1);
+    // 检查元素计数
+    EXPECT_EQ(set.count("hello"), 3);
+    EXPECT_EQ(set.count("world"), 2);
     EXPECT_EQ(set.count("nonexistent"), 0);
 }
 
-// 多元素操作测试（当前实现限制）
+// 多元素操作测试（现在支持重复元素）
 TEST_F(UnorderedMultiSetBasicTest, MultipleElements) {
     unordered_multiset<int> set;
     
-    // 插入多个元素，包括重复（但当前实现不支持重复）
+    // 插入多个元素，包括重复（现在支持重复）
     set.insert(10);
     set.insert(20);
-    set.insert(10);  // 不会真正插入
+    set.insert(10);  // 会插入重复元素
     set.insert(30);
-    set.insert(20);  // 不会真正插入
-    set.insert(10);  // 不会真正插入
+    set.insert(20);  // 会插入重复元素
+    set.insert(10);  // 会插入重复元素
     
-    EXPECT_EQ(set.size(), 3);  // 只有唯一元素
-    EXPECT_EQ(set.count(10), 1);
-    EXPECT_EQ(set.count(20), 1);
+    EXPECT_EQ(set.size(), 6);  // 包含重复元素
+    EXPECT_EQ(set.count(10), 3);
+    EXPECT_EQ(set.count(20), 2);
     EXPECT_EQ(set.count(30), 1);
     
     // 验证所有元素都存在

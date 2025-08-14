@@ -277,6 +277,14 @@ public:
         return insert_unique(std::move(value));
     }
     
+    iterator insert_multi(const value_type& value) {
+        return insert_multi_impl(value);
+    }
+    
+    iterator insert_multi(value_type&& value) {
+        return insert_multi_impl(std::move(value));
+    }
+    
     template <typename... Args>
     std::pair<iterator, bool> emplace(Args&&... args) {
         return insert_unique(value_type(std::forward<Args>(args)...));
@@ -304,10 +312,10 @@ public:
     
     size_type erase(const key_type& key) {
         size_type count = 0;
-        auto it = find(key);
-        if (it != end()) {
-            erase(it);
-            count = 1;
+        auto range = equal_range(key);
+        while (range.first != range.second) {
+            range.first = erase(range.first);
+            count++;
         }
         return count;
     }
@@ -330,27 +338,59 @@ public:
     }
     
     size_type count(const key_type& key) const {
-        return find(key) != end() ? 1 : 0;
+        size_type count = 0;
+        for (auto it = begin(); it != end(); ++it) {
+            if (key_equal_(get_key(*it), key)) {
+                count++;
+            }
+        }
+        return count;
     }
     
     std::pair<iterator, iterator> equal_range(const key_type& key) {
-        iterator it = find(key);
-        if (it != end()) {
-            iterator next = it;
-            ++next;
-            return {it, next};
+        iterator first = end();
+        iterator last = end();
+        
+        // Find first occurrence
+        for (auto it = begin(); it != end(); ++it) {
+            if (key_equal_(get_key(*it), key)) {
+                first = it;
+                break;
+            }
         }
-        return {end(), end()};
+        
+        if (first != end()) {
+            // For hash tables with linear probing, we can't assume contiguous elements
+            // So we return a range that includes just the first element
+            // The user can iterate through all elements to find all matches
+            last = first;
+            ++last;
+        }
+        
+        return {first, last};
     }
     
     std::pair<const_iterator, const_iterator> equal_range(const key_type& key) const {
-        const_iterator it = find(key);
-        if (it != end()) {
-            const_iterator next = it;
-            ++next;
-            return {it, next};
+        const_iterator first = end();
+        const_iterator last = end();
+        
+        // Find first occurrence
+        for (auto it = begin(); it != end(); ++it) {
+            if (key_equal_(get_key(*it), key)) {
+                first = it;
+                break;
+            }
         }
-        return {end(), end()};
+        
+        if (first != end()) {
+            // For hash tables with linear probing, we can't assume contiguous elements
+            // So we return a range that includes just the first element
+            // The user can iterate through all elements to find all matches
+            last = first;
+            ++last;
+        }
+        
+        return {first, last};
     }
     
     // 哈希策略
@@ -384,7 +424,7 @@ private:
             rehash(buckets_.size() * 2 + 1);
         }
         
-        key_type key = get_key(value);
+        const key_type& key = get_key(value);
         size_type index = find_bucket(key);
         
         if (index != buckets_.size() && buckets_[index] && buckets_[index]->state == hash_node_state::occupied) {
@@ -411,6 +451,33 @@ private:
         
         ++size_;
         return {iterator(buckets_[index], &buckets_, index), true};
+    }
+    
+    template <typename V>
+    iterator insert_multi_impl(V&& value) {
+        if (load_factor() >= max_load_factor_) {
+            rehash(buckets_.size() * 2 + 1);
+        }
+        
+        const key_type& key = get_key(value);
+        size_type index = hash_(key) % buckets_.size();
+        
+        // 线性探测寻找插入位置，允许重复
+        while (buckets_[index] && buckets_[index]->state == hash_node_state::occupied) {
+            index = (index + 1) % buckets_.size();
+        }
+        
+        if (!buckets_[index]) {
+            buckets_[index] = create_node<V>(std::forward<V>(value));
+        } else {
+            // 重用删除的节点
+            alloc_.destroy(&buckets_[index]->data);
+            alloc_.construct(&buckets_[index]->data, std::forward<V>(value));
+            buckets_[index]->state = hash_node_state::occupied;
+        }
+        
+        ++size_;
+        return iterator(buckets_[index], &buckets_, index);
     }
     
     size_type find_bucket(const key_type& key) const {

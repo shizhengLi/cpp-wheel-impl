@@ -4,6 +4,7 @@
 #include <utility>
 #include <functional>
 #include <string>
+#include <memory>
 
 namespace stl {
 
@@ -587,6 +588,14 @@ struct hash<std::string> {
             hash = ((hash << 5) + hash) + c; // hash * 33 + c
         }
         return hash;
+    }
+};
+
+// std::unique_ptr的哈希特化
+template<typename T>
+struct hash<std::unique_ptr<T>> {
+    size_t operator()(const std::unique_ptr<T>& ptr) const noexcept {
+        return hash<T*>()(ptr.get());
     }
 };
 

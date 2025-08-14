@@ -104,9 +104,8 @@ public:
     }
     
     void swap(priority_queue& other) noexcept {
-        using std::swap;
-        swap(c_, other.c_);
-        swap(comp_, other.comp_);
+        std::swap(c_, other.c_);
+        std::swap(comp_, other.comp_);
     }
 
     // 获取底层容器

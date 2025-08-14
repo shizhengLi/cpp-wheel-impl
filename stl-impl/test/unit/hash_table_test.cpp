@@ -324,7 +324,7 @@ TEST_F(HashTableTest, Rehash) {
     table.insert(2);
     table.insert(3);
     
-    size_t old_bucket_count = table.bucket_count();
+    [[maybe_unused]] size_t old_bucket_count = table.bucket_count();
     
     // rehash到更大的桶数
     table.rehash(20);
@@ -484,7 +484,7 @@ TEST_F(HashTableTest, AutoRehash) {
 TEST_F(HashTableTest, CollisionHandling) {
     // 使用一个会产生相同哈希值的简单哈希函数
     struct bad_hash {
-        size_t operator()(int x) const { return 1; } // 所有键都映射到同一个桶
+        size_t operator()(int /*x*/) const { return 1; } // 所有键都映射到同一个桶
     };
     
     test_hash_table<int, int, bad_hash> table;

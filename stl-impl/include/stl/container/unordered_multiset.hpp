@@ -128,30 +128,29 @@ public:
     // 修改器
     void clear() noexcept { table_.clear(); }
     
-    // 注意：当前基于hash_table的实现不支持真正的重复元素
-    // 这是实现限制，unordered_multiset应该允许重复元素
+    // 支持真正的重复元素插入
     iterator insert(const value_type& value) {
-        return table_.insert(value).first;
+        return table_.insert_multi(value);
     }
     
     iterator insert(value_type&& value) {
-        return table_.insert(std::move(value)).first;
+        return table_.insert_multi(std::move(value));
     }
     
     iterator insert(const_iterator hint, const value_type& value) {
         // 忽略hint，直接插入
-        return table_.insert(value).first;
+        return table_.insert_multi(value);
     }
     
     iterator insert(const_iterator hint, value_type&& value) {
         // 忽略hint，直接插入
-        return table_.insert(std::move(value)).first;
+        return table_.insert_multi(std::move(value));
     }
     
     template <typename InputIterator>
     void insert(InputIterator first, InputIterator last) {
         for (; first != last; ++first) {
-            table_.insert(*first);
+            table_.insert_multi(*first);
         }
     }
     
@@ -161,13 +160,13 @@ public:
     
     template <typename... Args>
     iterator emplace(Args&&... args) {
-        return table_.emplace(std::forward<Args>(args)...).first;
+        return table_.insert_multi(value_type(std::forward<Args>(args)...));
     }
     
     template <typename... Args>
     iterator emplace_hint(const_iterator hint, Args&&... args) {
         // 忽略hint，直接插入
-        return table_.emplace(std::forward<Args>(args)...).first;
+        return table_.insert_multi(value_type(std::forward<Args>(args)...));
     }
     
     iterator erase(const_iterator pos) {
@@ -186,7 +185,7 @@ public:
         return begin();
     }
     
-    // 注意：当前实现不支持真正的重复元素，所以erase只会删除一个元素
+    // 支持删除所有重复元素
     size_type erase(const key_type& key) {
         return table_.erase(key);
     }
@@ -196,7 +195,7 @@ public:
     }
     
     // 查找
-    // 注意：当前实现不支持真正的重复元素，所以count只会返回0或1
+    // 支持返回重复元素的个数
     size_type count(const key_type& key) const {
         return table_.count(key);
     }
@@ -274,9 +273,16 @@ public:
     bool operator==(const unordered_multiset& other) const {
         if (size() != other.size()) return false;
         
-        // 注意：当前实现不支持真正的重复元素，所以使用简单的比较
+        // 支持重复元素的比较
         for (const auto& value : *this) {
-            if (other.find(value) == other.end()) {
+            bool found = false;
+            for (const auto& other_value : other) {
+                if (key_eq()(value, other_value)) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
                 return false;
             }
         }

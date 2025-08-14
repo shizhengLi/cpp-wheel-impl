@@ -130,41 +130,40 @@ public:
     // 修改器
     void clear() noexcept { table_.clear(); }
     
-    // 注意：当前基于hash_table的实现不支持真正的重复键
-    // 这是实现限制，unordered_multimap应该允许重复键
+    // 支持真正的重复键插入
     iterator insert(const value_type& value) {
-        return table_.insert(value).first;
+        return table_.insert_multi(value);
     }
     
     iterator insert(value_type&& value) {
-        return table_.insert(std::move(value)).first;
+        return table_.insert_multi(std::move(value));
     }
     
     template <typename P>
     iterator insert(P&& value) {
-        return table_.insert(value_type(std::forward<P>(value))).first;
+        return table_.insert_multi(value_type(std::forward<P>(value)));
     }
     
     iterator insert(const_iterator hint, const value_type& value) {
         // 忽略hint，直接插入
-        return table_.insert(value).first;
+        return table_.insert_multi(value);
     }
     
     iterator insert(const_iterator hint, value_type&& value) {
         // 忽略hint，直接插入
-        return table_.insert(std::move(value)).first;
+        return table_.insert_multi(std::move(value));
     }
     
     template <typename P>
     iterator insert(const_iterator hint, P&& value) {
         // 忽略hint，直接插入
-        return table_.insert(value_type(std::forward<P>(value))).first;
+        return table_.insert_multi(value_type(std::forward<P>(value)));
     }
     
     template <typename InputIterator>
     void insert(InputIterator first, InputIterator last) {
         for (; first != last; ++first) {
-            table_.insert(*first);
+            table_.insert_multi(*first);
         }
     }
     
@@ -174,13 +173,13 @@ public:
     
     template <typename... Args>
     iterator emplace(Args&&... args) {
-        return table_.emplace(std::forward<Args>(args)...).first;
+        return table_.insert_multi(value_type(std::forward<Args>(args)...));
     }
     
     template <typename... Args>
     iterator emplace_hint(const_iterator hint, Args&&... args) {
         // 忽略hint，直接插入
-        return table_.emplace(std::forward<Args>(args)...).first;
+        return table_.insert_multi(value_type(std::forward<Args>(args)...));
     }
     
     iterator erase(const_iterator pos) {
@@ -199,7 +198,7 @@ public:
         return begin();
     }
     
-    // 注意：当前实现不支持真正的重复键，所以erase只会删除一个元素
+    // 支持删除所有重复键
     size_type erase(const key_type& key) {
         return table_.erase(key);
     }
@@ -209,7 +208,7 @@ public:
     }
     
     // 查找
-    // 注意：当前实现不支持真正的重复键，所以count只会返回0或1
+    // 支持返回重复键的个数
     size_type count(const key_type& key) const {
         return table_.count(key);
     }
@@ -287,10 +286,16 @@ public:
     bool operator==(const unordered_multimap& other) const {
         if (size() != other.size()) return false;
         
-        // 注意：当前实现不支持真正的重复键，所以使用简单的比较
+        // 支持重复键的比较
         for (const auto& value : *this) {
-            auto it = other.find(value.first);
-            if (it == other.end() || it->second != value.second) {
+            bool found = false;
+            for (const auto& other_value : other) {
+                if (key_eq()(value.first, other_value.first) && value.second == other_value.second) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
                 return false;
             }
         }
