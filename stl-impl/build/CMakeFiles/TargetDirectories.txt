@@ -10,6 +10,7 @@
 /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit/CMakeFiles/iterator_test.dir
 /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit/CMakeFiles/list_test.dir
 /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit/CMakeFiles/minimal_deque_test.dir
+/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit/CMakeFiles/stack_test.dir
 /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit/CMakeFiles/vector_test.dir
 /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit/CMakeFiles/test.dir
 /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit/CMakeFiles/edit_cache.dir

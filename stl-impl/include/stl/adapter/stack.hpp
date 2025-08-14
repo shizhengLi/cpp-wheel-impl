@@ -1,8 +1,9 @@
 #ifndef STL_STACK_HPP
 #define STL_STACK_HPP
 
-#include "container/deque.hpp"
+#include "../deque.hpp"
 #include <utility>
+#include <type_traits>
 
 namespace stl {
 
@@ -26,19 +27,19 @@ public:
     
     stack(stack&& other) noexcept : c_(std::move(other.c_)) {}
     
-    template <typename Alloc, typename = typename Container::allocator_type>
+    template <typename Alloc, typename = std::void_t<typename Container::allocator_type>>
     explicit stack(const Alloc& alloc) : c_(alloc) {}
     
-    template <typename Alloc, typename = typename Container::allocator_type>
+    template <typename Alloc, typename = std::void_t<typename Container::allocator_type>>
     stack(const Container& cont, const Alloc& alloc) : c_(cont, alloc) {}
     
-    template <typename Alloc, typename = typename Container::allocator_type>
+    template <typename Alloc, typename = std::void_t<typename Container::allocator_type>>
     stack(Container&& cont, const Alloc& alloc) : c_(std::move(cont), alloc) {}
     
-    template <typename Alloc, typename = typename Container::allocator_type>
+    template <typename Alloc, typename = std::void_t<typename Container::allocator_type>>
     stack(const stack& other, const Alloc& alloc) : c_(other.c_, alloc) {}
     
-    template <typename Alloc, typename = typename Container::allocator_type>
+    template <typename Alloc, typename = std::void_t<typename Container::allocator_type>>
     stack(stack&& other, const Alloc& alloc) : c_(std::move(other.c_), alloc) {}
 
     // 赋值运算符

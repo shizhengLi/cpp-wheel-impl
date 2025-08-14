@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/vector_test.dir/vector_test.o -o vector_test  -lGTest::GTest -lGTest::Main -lThreads::Threads 

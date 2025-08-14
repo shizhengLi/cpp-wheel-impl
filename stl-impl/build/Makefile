@@ -205,6 +205,19 @@ minimal_deque_test/fast:
 .PHONY : minimal_deque_test/fast
 
 #=============================================================================
+# Target rules for targets named stack_test
+
+# Build rule for target.
+stack_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 stack_test
+.PHONY : stack_test
+
+# fast build rule for target.
+stack_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/stack_test.dir/build.make test/unit/CMakeFiles/stack_test.dir/build
+.PHONY : stack_test/fast
+
+#=============================================================================
 # Target rules for targets named vector_test
 
 # Build rule for target.
@@ -232,6 +245,7 @@ help:
 	@echo "... iterator_test"
 	@echo "... list_test"
 	@echo "... minimal_deque_test"
+	@echo "... stack_test"
 	@echo "... vector_test"
 .PHONY : help
 

@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/simple_deque_test.dir/simple_deque_test.o -o simple_deque_test  -lGTest::GTest -lGTest::Main -lThreads::Threads 

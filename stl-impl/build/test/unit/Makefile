@@ -211,6 +211,20 @@ minimal_deque_test/fast:
 .PHONY : minimal_deque_test/fast
 
 # Convenience name for target.
+test/unit/CMakeFiles/stack_test.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/stack_test.dir/rule
+.PHONY : test/unit/CMakeFiles/stack_test.dir/rule
+
+# Convenience name for target.
+stack_test: test/unit/CMakeFiles/stack_test.dir/rule
+.PHONY : stack_test
+
+# fast build rule for target.
+stack_test/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/stack_test.dir/build.make test/unit/CMakeFiles/stack_test.dir/build
+.PHONY : stack_test/fast
+
+# Convenience name for target.
 test/unit/CMakeFiles/vector_test.dir/rule:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/vector_test.dir/rule
 .PHONY : test/unit/CMakeFiles/vector_test.dir/rule
@@ -368,6 +382,30 @@ minimal_deque_test.cpp.s:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/minimal_deque_test.dir/build.make test/unit/CMakeFiles/minimal_deque_test.dir/minimal_deque_test.cpp.s
 .PHONY : minimal_deque_test.cpp.s
 
+stack_test.o: stack_test.cpp.o
+.PHONY : stack_test.o
+
+# target to build an object file
+stack_test.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/stack_test.dir/build.make test/unit/CMakeFiles/stack_test.dir/stack_test.cpp.o
+.PHONY : stack_test.cpp.o
+
+stack_test.i: stack_test.cpp.i
+.PHONY : stack_test.i
+
+# target to preprocess a source file
+stack_test.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/stack_test.dir/build.make test/unit/CMakeFiles/stack_test.dir/stack_test.cpp.i
+.PHONY : stack_test.cpp.i
+
+stack_test.s: stack_test.cpp.s
+.PHONY : stack_test.s
+
+# target to generate assembly for a file
+stack_test.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/stack_test.dir/build.make test/unit/CMakeFiles/stack_test.dir/stack_test.cpp.s
+.PHONY : stack_test.cpp.s
+
 vector_test.o: vector_test.cpp.o
 .PHONY : vector_test.o
 
@@ -407,6 +445,7 @@ help:
 	@echo "... iterator_test"
 	@echo "... list_test"
 	@echo "... minimal_deque_test"
+	@echo "... stack_test"
 	@echo "... vector_test"
 	@echo "... CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.o"
 	@echo "... CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.i"
@@ -426,6 +465,9 @@ help:
 	@echo "... minimal_deque_test.o"
 	@echo "... minimal_deque_test.i"
 	@echo "... minimal_deque_test.s"
+	@echo "... stack_test.o"
+	@echo "... stack_test.i"
+	@echo "... stack_test.s"
 	@echo "... vector_test.o"
 	@echo "... vector_test.i"
 	@echo "... vector_test.s"

@@ -1,3 +1,0 @@
-test/unit/CMakeFiles/CMakeCXXCompilerId.dir/CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.o: \
- /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/test/unit/CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.cpp \
- /usr/include/stdc-predef.h

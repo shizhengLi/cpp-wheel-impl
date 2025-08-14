@@ -150,5 +150,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "test/unit/CMakeFiles/iterator_test.dir/DependInfo.cmake"
   "test/unit/CMakeFiles/list_test.dir/DependInfo.cmake"
   "test/unit/CMakeFiles/minimal_deque_test.dir/DependInfo.cmake"
+  "test/unit/CMakeFiles/stack_test.dir/DependInfo.cmake"
   "test/unit/CMakeFiles/vector_test.dir/DependInfo.cmake"
   )
