@@ -1,0 +1,135 @@
+# Comprehensive Makefile for STL-impl Test Suite
+# This makefile provides simple commands to run all tests in the test directory
+
+# Compiler settings
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall -Wextra -O2 -g
+INCLUDES = -I../../include
+
+# Google Test settings
+GTEST_LIBS = -lgtest -lgtest_main -pthread
+
+# Test source files (excluding hash container tests which have their own makefile)
+# Note: test_include.cpp is excluded as it's a simple compilation test
+TEST_SOURCES = \
+	allocator_test.cpp \
+	functional_test.cpp \
+	iterator_test.cpp \
+	list_test.cpp \
+	map_test.cpp \
+	minimal_deque_test.cpp \
+	multimap_test.cpp \
+	multiset_test.cpp \
+	priority_queue_test.cpp \
+	queue_test.cpp \
+	rb_tree_test_simple.cpp \
+	set_test.cpp \
+	stack_test.cpp \
+	vector_test.cpp
+
+# Hash container test files (use existing makefile)
+HASH_TESTS = \
+	hash_table_basic_test \
+	unordered_set_basic_test \
+	unordered_map_basic_test
+
+# Generate test executable names
+TEST_EXECS = $(TEST_SOURCES:.cpp=)
+
+# Default target
+all: $(TEST_EXECS)
+
+# Build individual tests
+$(TEST_EXECS): %: %.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $< -o $@ $(GTEST_LIBS)
+
+# Run individual tests
+test_%: %
+	./$*
+
+# Run all regular tests
+test_all: $(TEST_EXECS)
+	@echo "Running all regular STL tests..."
+	@for test in $(TEST_EXECS); do \
+		echo "Running $$test..."; \
+		if ./$$test; then \
+			echo "$$test PASSED"; \
+		else \
+			echo "$$test FAILED"; \
+			exit 1; \
+		fi; \
+	done
+	@echo "All regular tests completed!"
+
+# Run hash container tests (using existing makefile)
+test_hash:
+	@echo "Running hash container tests..."
+	make -f test_hash_containers.mk test_all
+
+# Run all tests including hash containers
+test_full: test_all test_hash
+	@echo "All tests completed successfully!"
+
+# Clean build artifacts
+clean:
+	rm -f $(TEST_EXECS)
+	make -f test_hash_containers.mk clean
+
+# Rebuild all tests
+rebuild: clean all
+
+# Check if Google Test is installed
+check_gtest:
+	@echo "Checking Google Test installation..."
+	pkg-config --exists gtest && echo "Google Test is installed" || echo "Google Test is not installed"
+
+# Install Google Test (if needed)
+install_gtest:
+	@echo "Installing Google Test..."
+	sudo apt-get update
+	sudo apt-get install -y libgtest-dev libgtest1
+
+# Build and run a specific test
+quick_test: $(TEST_EXECS)
+	@echo "Quick test - running first available test..."
+	./$(firstword $(TEST_EXECS))
+
+# Show test statistics
+stats:
+	@echo "Test Suite Statistics:"
+	@echo "Regular tests: $(words $(TEST_EXECS))"
+	@echo "Hash container tests: $(words $(HASH_TESTS))"
+	@echo "Total tests: $(shell echo $(words $(TEST_EXECS)) + $(words $(HASH_TESTS)) | bc)"
+	@echo ""
+	@echo "Regular test executables:"
+	@for test in $(TEST_EXECS); do \
+		if [ -f $$test ]; then \
+			echo "  ✓ $$test"; \
+		else \
+			echo "  ✗ $$test (not built)"; \
+		fi; \
+	done
+
+# Help message
+help:
+	@echo "Available targets:"
+	@echo "  all           - Build all regular test executables"
+	@echo "  test_all      - Build and run all regular tests"
+	@echo "  test_hash     - Build and run hash container tests"
+	@echo "  test_full     - Build and run all tests including hash containers"
+	@echo "  test_<name>   - Build and run specific test (e.g., test_vector)"
+	@echo "  clean         - Remove all built files"
+	@echo "  rebuild       - Clean and rebuild all tests"
+	@echo "  quick_test    - Build and run first available test"
+	@echo "  stats         - Show test suite statistics"
+	@echo "  check_gtest   - Check if Google Test is installed"
+	@echo "  install_gtest - Install Google Test"
+	@echo "  help          - Show this help message"
+	@echo ""
+	@echo "Examples:"
+	@echo "  make test_full     # Run all tests"
+	@echo "  make test_vector   # Run only vector test"
+	@echo "  make clean         # Clean all build artifacts"
+
+# Phony targets
+.PHONY: all test_all test_hash test_full clean rebuild check_gtest install_gtest quick_test stats help $(TEST_EXECS:%=test_%)

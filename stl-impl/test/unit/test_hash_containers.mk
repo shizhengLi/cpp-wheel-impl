@@ -12,15 +12,19 @@ GTEST_LIBS = -lgtest -lgtest_main -pthread
 # Source files
 HASH_TABLE_TEST_SRC = hash_table_basic_test.cpp
 UNORDERED_SET_TEST_SRC = unordered_set_basic_test.cpp
+UNORDERED_MULTISET_TEST_SRC = unordered_multiset_basic_test.cpp
 UNORDERED_MAP_TEST_SRC = unordered_map_basic_test.cpp
+UNORDERED_MULTIMAP_TEST_SRC = unordered_multimap_basic_test.cpp
 
 # Executable names
 HASH_TABLE_TEST = hash_table_basic_test
 UNORDERED_SET_TEST = unordered_set_basic_test
+UNORDERED_MULTISET_TEST = unordered_multiset_basic_test
 UNORDERED_MAP_TEST = unordered_map_basic_test
+UNORDERED_MULTIMAP_TEST = unordered_multimap_basic_test
 
 # Default target
-all: $(HASH_TABLE_TEST) $(UNORDERED_SET_TEST) $(UNORDERED_MAP_TEST)
+all: $(HASH_TABLE_TEST) $(UNORDERED_SET_TEST) $(UNORDERED_MULTISET_TEST) $(UNORDERED_MAP_TEST) $(UNORDERED_MULTIMAP_TEST)
 
 # Build hash_table_test
 $(HASH_TABLE_TEST): $(HASH_TABLE_TEST_SRC)
@@ -30,8 +34,16 @@ $(HASH_TABLE_TEST): $(HASH_TABLE_TEST_SRC)
 $(UNORDERED_SET_TEST): $(UNORDERED_SET_TEST_SRC)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) $< -o $@ $(GTEST_LIBS)
 
+# Build unordered_multiset_test
+$(UNORDERED_MULTISET_TEST): $(UNORDERED_MULTISET_TEST_SRC)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $< -o $@ $(GTEST_LIBS)
+
 # Build unordered_map_test
 $(UNORDERED_MAP_TEST): $(UNORDERED_MAP_TEST_SRC)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $< -o $@ $(GTEST_LIBS)
+
+# Build unordered_multimap_test
+$(UNORDERED_MULTIMAP_TEST): $(UNORDERED_MULTIMAP_TEST_SRC)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) $< -o $@ $(GTEST_LIBS)
 
 # Run individual tests
@@ -41,22 +53,32 @@ test_hash_table: $(HASH_TABLE_TEST)
 test_unordered_set: $(UNORDERED_SET_TEST)
 	./$(UNORDERED_SET_TEST)
 
+test_unordered_multiset: $(UNORDERED_MULTISET_TEST)
+	./$(UNORDERED_MULTISET_TEST)
+
 test_unordered_map: $(UNORDERED_MAP_TEST)
 	./$(UNORDERED_MAP_TEST)
 
+test_unordered_multimap: $(UNORDERED_MULTIMAP_TEST)
+	./$(UNORDERED_MULTIMAP_TEST)
+
 # Run all tests
-test_all: $(HASH_TABLE_TEST) $(UNORDERED_SET_TEST) $(UNORDERED_MAP_TEST)
+test_all: $(HASH_TABLE_TEST) $(UNORDERED_SET_TEST) $(UNORDERED_MULTISET_TEST) $(UNORDERED_MAP_TEST) $(UNORDERED_MULTIMAP_TEST)
 	@echo "Running hash_table_test..."
 	./$(HASH_TABLE_TEST)
 	@echo "Running unordered_set_test..."
 	./$(UNORDERED_SET_TEST)
+	@echo "Running unordered_multiset_test..."
+	./$(UNORDERED_MULTISET_TEST)
 	@echo "Running unordered_map_test..."
 	./$(UNORDERED_MAP_TEST)
+	@echo "Running unordered_multimap_test..."
+	./$(UNORDERED_MULTIMAP_TEST)
 	@echo "All tests completed!"
 
 # Clean build artifacts
 clean:
-	rm -f $(HASH_TABLE_TEST) $(UNORDERED_SET_TEST) $(UNORDERED_MAP_TEST)
+	rm -f $(HASH_TABLE_TEST) $(UNORDERED_SET_TEST) $(UNORDERED_MULTISET_TEST) $(UNORDERED_MAP_TEST) $(UNORDERED_MULTIMAP_TEST)
 
 # Rebuild all tests
 rebuild: clean all
@@ -75,16 +97,18 @@ check_gtest:
 # Help message
 help:
 	@echo "Available targets:"
-	@echo "  all              - Build all test executables"
-	@echo "  test_hash_table  - Build and run hash_table_test"
-	@echo "  test_unordered_set - Build and run unordered_set_test"
-	@echo "  test_unordered_map - Build and run unordered_map_test"
-	@echo "  test_all         - Build and run all tests"
-	@echo "  clean            - Remove all built files"
-	@echo "  rebuild          - Clean and rebuild all tests"
-	@echo "  install_gtest    - Install Google Test"
-	@echo "  check_gtest      - Check if Google Test is installed"
-	@echo "  help             - Show this help message"
+	@echo "  all                    - Build all test executables"
+	@echo "  test_hash_table        - Build and run hash_table_test"
+	@echo "  test_unordered_set     - Build and run unordered_set_test"
+	@echo "  test_unordered_multiset - Build and run unordered_multiset_test"
+	@echo "  test_unordered_map     - Build and run unordered_map_test"
+	@echo "  test_unordered_multimap - Build and run unordered_multimap_test"
+	@echo "  test_all               - Build and run all tests"
+	@echo "  clean                  - Remove all built files"
+	@echo "  rebuild                - Clean and rebuild all tests"
+	@echo "  install_gtest          - Install Google Test"
+	@echo "  check_gtest            - Check if Google Test is installed"
+	@echo "  help                   - Show this help message"
 
 # Phony targets
-.PHONY: all test_hash_table test_unordered_set test_unordered_map test_all clean rebuild install_gtest check_gtest help
+.PHONY: all test_hash_table test_unordered_set test_unordered_multiset test_unordered_map test_unordered_multimap test_all clean rebuild install_gtest check_gtest help
