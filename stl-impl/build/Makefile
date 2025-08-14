@@ -179,6 +179,19 @@ list_test/fast:
 .PHONY : list_test/fast
 
 #=============================================================================
+# Target rules for targets named map_test
+
+# Build rule for target.
+map_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 map_test
+.PHONY : map_test
+
+# fast build rule for target.
+map_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/map_test.dir/build.make test/unit/CMakeFiles/map_test.dir/build
+.PHONY : map_test/fast
+
+#=============================================================================
 # Target rules for targets named minimal_deque_test
 
 # Build rule for target.
@@ -295,6 +308,7 @@ help:
 	@echo "... functional_test"
 	@echo "... iterator_test"
 	@echo "... list_test"
+	@echo "... map_test"
 	@echo "... minimal_deque_test"
 	@echo "... multiset_test"
 	@echo "... priority_queue_test"

@@ -300,26 +300,12 @@ public:
     
     iterator lower_bound(const key_type& key) {
         node_pointer node = lower_bound_node(key);
-        if (!node) return end();
-        
-        // Check if the found node is actually >= key
-        if (!comp_(key_of_value()(node->data), key)) {
-            return iterator(node);
-        } else {
-            return end();
-        }
+        return node ? iterator(node) : end();
     }
     
     const_iterator lower_bound(const key_type& key) const {
         node_pointer node = lower_bound_node(key);
-        if (!node) return end();
-        
-        // Check if the found node is actually >= key
-        if (!comp_(key_of_value()(node->data), key)) {
-            return const_iterator(node);
-        } else {
-            return end();
-        }
+        return node ? const_iterator(node) : end();
     }
     
     iterator upper_bound(const key_type& key) {
@@ -427,11 +413,13 @@ private:
         node_pointer node = root_;
         node_pointer result = nullptr;
         while (node) {
-            if (comp_(key, key_of_value()(node->data))) {
-                node = node->left;
-            } else {
-                result = node;
+            if (comp_(key_of_value()(node->data), key)) {
+                // node->data < key, need to go right
                 node = node->right;
+            } else {
+                // node->data >= key, this is a candidate
+                result = node;
+                node = node->left;
             }
         }
         return result;

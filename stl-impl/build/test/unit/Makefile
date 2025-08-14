@@ -183,6 +183,20 @@ list_test/fast:
 .PHONY : list_test/fast
 
 # Convenience name for target.
+test/unit/CMakeFiles/map_test.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/map_test.dir/rule
+.PHONY : test/unit/CMakeFiles/map_test.dir/rule
+
+# Convenience name for target.
+map_test: test/unit/CMakeFiles/map_test.dir/rule
+.PHONY : map_test
+
+# fast build rule for target.
+map_test/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/map_test.dir/build.make test/unit/CMakeFiles/map_test.dir/build
+.PHONY : map_test/fast
+
+# Convenience name for target.
 test/unit/CMakeFiles/minimal_deque_test.dir/rule:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/minimal_deque_test.dir/rule
 .PHONY : test/unit/CMakeFiles/minimal_deque_test.dir/rule
@@ -390,6 +404,30 @@ list_test.cpp.s:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/list_test.dir/build.make test/unit/CMakeFiles/list_test.dir/list_test.cpp.s
 .PHONY : list_test.cpp.s
 
+map_test.o: map_test.cpp.o
+.PHONY : map_test.o
+
+# target to build an object file
+map_test.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/map_test.dir/build.make test/unit/CMakeFiles/map_test.dir/map_test.cpp.o
+.PHONY : map_test.cpp.o
+
+map_test.i: map_test.cpp.i
+.PHONY : map_test.i
+
+# target to preprocess a source file
+map_test.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/map_test.dir/build.make test/unit/CMakeFiles/map_test.dir/map_test.cpp.i
+.PHONY : map_test.cpp.i
+
+map_test.s: map_test.cpp.s
+.PHONY : map_test.s
+
+# target to generate assembly for a file
+map_test.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/map_test.dir/build.make test/unit/CMakeFiles/map_test.dir/map_test.cpp.s
+.PHONY : map_test.cpp.s
+
 minimal_deque_test.o: minimal_deque_test.cpp.o
 .PHONY : minimal_deque_test.o
 
@@ -595,6 +633,7 @@ help:
 	@echo "... functional_test"
 	@echo "... iterator_test"
 	@echo "... list_test"
+	@echo "... map_test"
 	@echo "... minimal_deque_test"
 	@echo "... multiset_test"
 	@echo "... priority_queue_test"
@@ -615,6 +654,9 @@ help:
 	@echo "... list_test.o"
 	@echo "... list_test.i"
 	@echo "... list_test.s"
+	@echo "... map_test.o"
+	@echo "... map_test.i"
+	@echo "... map_test.s"
 	@echo "... minimal_deque_test.o"
 	@echo "... minimal_deque_test.i"
 	@echo "... minimal_deque_test.s"
