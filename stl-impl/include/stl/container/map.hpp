@@ -166,11 +166,13 @@ public:
     
     iterator insert(const_iterator hint, const value_type& value) {
         // 忽略hint，直接插入
+        (void)hint; // 避免未使用参数警告
         return tree_.insert(value).first;
     }
     
     iterator insert(const_iterator hint, value_type&& value) {
         // 忽略hint，直接插入
+        (void)hint; // 避免未使用参数警告
         return tree_.insert(std::move(value)).first;
     }
     
@@ -193,6 +195,7 @@ public:
     template <typename... Args>
     iterator emplace_hint(const_iterator hint, Args&&... args) {
         // 忽略hint，直接插入
+        (void)hint; // 避免未使用参数警告
         return tree_.emplace(std::forward<Args>(args)...).first;
     }
     
