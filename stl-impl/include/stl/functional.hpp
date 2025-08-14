@@ -367,11 +367,10 @@ binary_negate<Predicate> not2(const Predicate& pred) {
     return binary_negate<Predicate>(pred);
 }
 
-// 简化的绑定器 - 使用lambda
+// 简化的绑定器 - 使用lambda (C++17 compatible)
 template<typename Fn, typename... Args>
 auto bind_front(Fn&& fn, Args&&... args) {
-    return [fn = std::forward<Fn>(fn), ...args = std::forward<Args>(args)]
-           (auto&&... call_args) mutable -> decltype(fn(args..., std::forward<decltype(call_args)>(call_args)...)) {
+    return [fn = std::forward<Fn>(fn), args...] (auto&&... call_args) mutable -> decltype(fn(args..., std::forward<decltype(call_args)>(call_args)...)) {
         return fn(args..., std::forward<decltype(call_args)>(call_args)...);
     };
 }
