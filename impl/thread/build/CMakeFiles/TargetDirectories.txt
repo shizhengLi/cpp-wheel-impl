@@ -1,0 +1,5 @@
+/data/lishizheng/cpp_projects/cpp-wheel-impl/impl/thread/build/CMakeFiles/thread_test.dir
+/data/lishizheng/cpp_projects/cpp-wheel-impl/impl/thread/build/CMakeFiles/minimal_test.dir
+/data/lishizheng/cpp_projects/cpp-wheel-impl/impl/thread/build/CMakeFiles/test.dir
+/data/lishizheng/cpp_projects/cpp-wheel-impl/impl/thread/build/CMakeFiles/edit_cache.dir
+/data/lishizheng/cpp_projects/cpp-wheel-impl/impl/thread/build/CMakeFiles/rebuild_cache.dir
