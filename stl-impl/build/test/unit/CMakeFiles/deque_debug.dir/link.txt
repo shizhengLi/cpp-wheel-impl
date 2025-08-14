@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -Wextra -Werror CMakeFiles/deque_debug.dir/deque_debug.cpp.o -o deque_debug  /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a 

@@ -153,32 +153,6 @@ allocator_test/fast:
 .PHONY : allocator_test/fast
 
 #=============================================================================
-# Target rules for targets named deque_debug
-
-# Build rule for target.
-deque_debug: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 deque_debug
-.PHONY : deque_debug
-
-# fast build rule for target.
-deque_debug/fast:
-	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/deque_debug.dir/build.make test/unit/CMakeFiles/deque_debug.dir/build
-.PHONY : deque_debug/fast
-
-#=============================================================================
-# Target rules for targets named deque_test
-
-# Build rule for target.
-deque_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 deque_test
-.PHONY : deque_test
-
-# fast build rule for target.
-deque_test/fast:
-	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/deque_test.dir/build.make test/unit/CMakeFiles/deque_test.dir/build
-.PHONY : deque_test/fast
-
-#=============================================================================
 # Target rules for targets named functional_test
 
 # Build rule for target.
@@ -205,6 +179,19 @@ iterator_test/fast:
 .PHONY : iterator_test/fast
 
 #=============================================================================
+# Target rules for targets named list_test
+
+# Build rule for target.
+list_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 list_test
+.PHONY : list_test
+
+# fast build rule for target.
+list_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/list_test.dir/build.make test/unit/CMakeFiles/list_test.dir/build
+.PHONY : list_test/fast
+
+#=============================================================================
 # Target rules for targets named minimal_deque_test
 
 # Build rule for target.
@@ -216,19 +203,6 @@ minimal_deque_test: cmake_check_build_system
 minimal_deque_test/fast:
 	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/minimal_deque_test.dir/build.make test/unit/CMakeFiles/minimal_deque_test.dir/build
 .PHONY : minimal_deque_test/fast
-
-#=============================================================================
-# Target rules for targets named simple_deque_test
-
-# Build rule for target.
-simple_deque_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 simple_deque_test
-.PHONY : simple_deque_test
-
-# fast build rule for target.
-simple_deque_test/fast:
-	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/simple_deque_test.dir/build.make test/unit/CMakeFiles/simple_deque_test.dir/build
-.PHONY : simple_deque_test/fast
 
 #=============================================================================
 # Target rules for targets named vector_test
@@ -254,12 +228,10 @@ help:
 	@echo "... test"
 	@echo "... CMakeCXXCompilerId"
 	@echo "... allocator_test"
-	@echo "... deque_debug"
-	@echo "... deque_test"
 	@echo "... functional_test"
 	@echo "... iterator_test"
+	@echo "... list_test"
 	@echo "... minimal_deque_test"
-	@echo "... simple_deque_test"
 	@echo "... vector_test"
 .PHONY : help
 

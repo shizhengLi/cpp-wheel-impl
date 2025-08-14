@@ -131,12 +131,10 @@ test/performance/clean:
 # Recursive "all" directory target.
 test/unit/all: test/unit/CMakeFiles/CMakeCXXCompilerId.dir/all
 test/unit/all: test/unit/CMakeFiles/allocator_test.dir/all
-test/unit/all: test/unit/CMakeFiles/deque_debug.dir/all
-test/unit/all: test/unit/CMakeFiles/deque_test.dir/all
 test/unit/all: test/unit/CMakeFiles/functional_test.dir/all
 test/unit/all: test/unit/CMakeFiles/iterator_test.dir/all
+test/unit/all: test/unit/CMakeFiles/list_test.dir/all
 test/unit/all: test/unit/CMakeFiles/minimal_deque_test.dir/all
-test/unit/all: test/unit/CMakeFiles/simple_deque_test.dir/all
 test/unit/all: test/unit/CMakeFiles/vector_test.dir/all
 .PHONY : test/unit/all
 
@@ -147,12 +145,10 @@ test/unit/preinstall:
 # Recursive "clean" directory target.
 test/unit/clean: test/unit/CMakeFiles/CMakeCXXCompilerId.dir/clean
 test/unit/clean: test/unit/CMakeFiles/allocator_test.dir/clean
-test/unit/clean: test/unit/CMakeFiles/deque_debug.dir/clean
-test/unit/clean: test/unit/CMakeFiles/deque_test.dir/clean
 test/unit/clean: test/unit/CMakeFiles/functional_test.dir/clean
 test/unit/clean: test/unit/CMakeFiles/iterator_test.dir/clean
+test/unit/clean: test/unit/CMakeFiles/list_test.dir/clean
 test/unit/clean: test/unit/CMakeFiles/minimal_deque_test.dir/clean
-test/unit/clean: test/unit/CMakeFiles/simple_deque_test.dir/clean
 test/unit/clean: test/unit/CMakeFiles/vector_test.dir/clean
 .PHONY : test/unit/clean
 
@@ -209,65 +205,13 @@ test/unit/CMakeFiles/allocator_test.dir/clean:
 .PHONY : test/unit/CMakeFiles/allocator_test.dir/clean
 
 #=============================================================================
-# Target rules for target test/unit/CMakeFiles/deque_debug.dir
-
-# All Build rule for target.
-test/unit/CMakeFiles/deque_debug.dir/all:
-	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/deque_debug.dir/build.make test/unit/CMakeFiles/deque_debug.dir/depend
-	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/deque_debug.dir/build.make test/unit/CMakeFiles/deque_debug.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles --progress-num=5,6 "Built target deque_debug"
-.PHONY : test/unit/CMakeFiles/deque_debug.dir/all
-
-# Build rule for subdir invocation for target.
-test/unit/CMakeFiles/deque_debug.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/deque_debug.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles 0
-.PHONY : test/unit/CMakeFiles/deque_debug.dir/rule
-
-# Convenience name for target.
-deque_debug: test/unit/CMakeFiles/deque_debug.dir/rule
-.PHONY : deque_debug
-
-# clean rule for target.
-test/unit/CMakeFiles/deque_debug.dir/clean:
-	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/deque_debug.dir/build.make test/unit/CMakeFiles/deque_debug.dir/clean
-.PHONY : test/unit/CMakeFiles/deque_debug.dir/clean
-
-#=============================================================================
-# Target rules for target test/unit/CMakeFiles/deque_test.dir
-
-# All Build rule for target.
-test/unit/CMakeFiles/deque_test.dir/all:
-	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/deque_test.dir/build.make test/unit/CMakeFiles/deque_test.dir/depend
-	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/deque_test.dir/build.make test/unit/CMakeFiles/deque_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles --progress-num=7,8 "Built target deque_test"
-.PHONY : test/unit/CMakeFiles/deque_test.dir/all
-
-# Build rule for subdir invocation for target.
-test/unit/CMakeFiles/deque_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/deque_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles 0
-.PHONY : test/unit/CMakeFiles/deque_test.dir/rule
-
-# Convenience name for target.
-deque_test: test/unit/CMakeFiles/deque_test.dir/rule
-.PHONY : deque_test
-
-# clean rule for target.
-test/unit/CMakeFiles/deque_test.dir/clean:
-	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/deque_test.dir/build.make test/unit/CMakeFiles/deque_test.dir/clean
-.PHONY : test/unit/CMakeFiles/deque_test.dir/clean
-
-#=============================================================================
 # Target rules for target test/unit/CMakeFiles/functional_test.dir
 
 # All Build rule for target.
 test/unit/CMakeFiles/functional_test.dir/all:
 	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/functional_test.dir/build.make test/unit/CMakeFiles/functional_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/functional_test.dir/build.make test/unit/CMakeFiles/functional_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles --progress-num=9,10 "Built target functional_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles --progress-num=5,6 "Built target functional_test"
 .PHONY : test/unit/CMakeFiles/functional_test.dir/all
 
 # Build rule for subdir invocation for target.
@@ -293,7 +237,7 @@ test/unit/CMakeFiles/functional_test.dir/clean:
 test/unit/CMakeFiles/iterator_test.dir/all:
 	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/iterator_test.dir/build.make test/unit/CMakeFiles/iterator_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/iterator_test.dir/build.make test/unit/CMakeFiles/iterator_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles --progress-num=11,12 "Built target iterator_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles --progress-num=7,8 "Built target iterator_test"
 .PHONY : test/unit/CMakeFiles/iterator_test.dir/all
 
 # Build rule for subdir invocation for target.
@@ -313,13 +257,39 @@ test/unit/CMakeFiles/iterator_test.dir/clean:
 .PHONY : test/unit/CMakeFiles/iterator_test.dir/clean
 
 #=============================================================================
+# Target rules for target test/unit/CMakeFiles/list_test.dir
+
+# All Build rule for target.
+test/unit/CMakeFiles/list_test.dir/all:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/list_test.dir/build.make test/unit/CMakeFiles/list_test.dir/depend
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/list_test.dir/build.make test/unit/CMakeFiles/list_test.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles --progress-num=9,10 "Built target list_test"
+.PHONY : test/unit/CMakeFiles/list_test.dir/all
+
+# Build rule for subdir invocation for target.
+test/unit/CMakeFiles/list_test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/list_test.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles 0
+.PHONY : test/unit/CMakeFiles/list_test.dir/rule
+
+# Convenience name for target.
+list_test: test/unit/CMakeFiles/list_test.dir/rule
+.PHONY : list_test
+
+# clean rule for target.
+test/unit/CMakeFiles/list_test.dir/clean:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/list_test.dir/build.make test/unit/CMakeFiles/list_test.dir/clean
+.PHONY : test/unit/CMakeFiles/list_test.dir/clean
+
+#=============================================================================
 # Target rules for target test/unit/CMakeFiles/minimal_deque_test.dir
 
 # All Build rule for target.
 test/unit/CMakeFiles/minimal_deque_test.dir/all:
 	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/minimal_deque_test.dir/build.make test/unit/CMakeFiles/minimal_deque_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/minimal_deque_test.dir/build.make test/unit/CMakeFiles/minimal_deque_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles --progress-num=13,14 "Built target minimal_deque_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles --progress-num=11,12 "Built target minimal_deque_test"
 .PHONY : test/unit/CMakeFiles/minimal_deque_test.dir/all
 
 # Build rule for subdir invocation for target.
@@ -339,39 +309,13 @@ test/unit/CMakeFiles/minimal_deque_test.dir/clean:
 .PHONY : test/unit/CMakeFiles/minimal_deque_test.dir/clean
 
 #=============================================================================
-# Target rules for target test/unit/CMakeFiles/simple_deque_test.dir
-
-# All Build rule for target.
-test/unit/CMakeFiles/simple_deque_test.dir/all:
-	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/simple_deque_test.dir/build.make test/unit/CMakeFiles/simple_deque_test.dir/depend
-	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/simple_deque_test.dir/build.make test/unit/CMakeFiles/simple_deque_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles --progress-num=15,16 "Built target simple_deque_test"
-.PHONY : test/unit/CMakeFiles/simple_deque_test.dir/all
-
-# Build rule for subdir invocation for target.
-test/unit/CMakeFiles/simple_deque_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/simple_deque_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles 0
-.PHONY : test/unit/CMakeFiles/simple_deque_test.dir/rule
-
-# Convenience name for target.
-simple_deque_test: test/unit/CMakeFiles/simple_deque_test.dir/rule
-.PHONY : simple_deque_test
-
-# clean rule for target.
-test/unit/CMakeFiles/simple_deque_test.dir/clean:
-	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/simple_deque_test.dir/build.make test/unit/CMakeFiles/simple_deque_test.dir/clean
-.PHONY : test/unit/CMakeFiles/simple_deque_test.dir/clean
-
-#=============================================================================
 # Target rules for target test/unit/CMakeFiles/vector_test.dir
 
 # All Build rule for target.
 test/unit/CMakeFiles/vector_test.dir/all:
 	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/vector_test.dir/build.make test/unit/CMakeFiles/vector_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/vector_test.dir/build.make test/unit/CMakeFiles/vector_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles --progress-num=17,18 "Built target vector_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles --progress-num=13,14 "Built target vector_test"
 .PHONY : test/unit/CMakeFiles/vector_test.dir/all
 
 # Build rule for subdir invocation for target.

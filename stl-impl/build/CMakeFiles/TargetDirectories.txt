@@ -6,12 +6,10 @@
 /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/CMakeFiles/rebuild_cache.dir
 /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit/CMakeFiles/CMakeCXXCompilerId.dir
 /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit/CMakeFiles/allocator_test.dir
-/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit/CMakeFiles/deque_debug.dir
-/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit/CMakeFiles/deque_test.dir
 /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit/CMakeFiles/functional_test.dir
 /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit/CMakeFiles/iterator_test.dir
+/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit/CMakeFiles/list_test.dir
 /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit/CMakeFiles/minimal_deque_test.dir
-/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit/CMakeFiles/simple_deque_test.dir
 /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit/CMakeFiles/vector_test.dir
 /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit/CMakeFiles/test.dir
 /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit/CMakeFiles/edit_cache.dir

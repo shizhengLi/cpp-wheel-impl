@@ -1,7 +1,7 @@
 #pragma once
 
 #include "iterator.hpp"
-#include "memory.hpp"
+#include "allocator.hpp"
 #include <initializer_list>
 #include <utility>
 #include <stdexcept>
@@ -17,18 +17,18 @@ public:
     // 类型定义
     using value_type = T;
     using allocator_type = Allocator;
-    using size_type = typename allocator_traits<Allocator>::size_type;
-    using difference_type = typename allocator_traits<Allocator>::difference_type;
+    using size_type = std::size_t;
+    using difference_type = std::ptrdiff_t;
     using reference = T&;
     using const_reference = const T&;
-    using pointer = typename allocator_traits<Allocator>::pointer;
-    using const_pointer = typename allocator_traits<Allocator>::const_pointer;
+    using pointer = T*;
+    using const_pointer = const T*;
     
     // 迭代器定义
     class iterator;
     class const_iterator;
-    using reverse_iterator = reverse_iterator_adapter<iterator>;
-    using const_reverse_iterator = reverse_iterator_adapter<const_iterator>;
+    using reverse_iterator = stl::reverse_iterator<iterator>;
+    using const_reverse_iterator = stl::reverse_iterator<const_iterator>;
     
     // 构造函数
     list() noexcept(noexcept(Allocator())) : list(Allocator()) {}
@@ -220,7 +220,7 @@ public:
     }
     
     size_type max_size() const noexcept {
-        return allocator_traits<Allocator>::max_size(alloc_);
+        return alloc_.max_size();
     }
     
     // 修改器
@@ -272,7 +272,7 @@ public:
     }
     
     iterator erase(const_iterator pos) {
-        Node* node = pos.node_;
+        Node* node = const_cast<Node*>(pos.node_);
         iterator result(node ? node->next : nullptr);
         
         if (node == head_) {
@@ -297,7 +297,7 @@ public:
         while (first != last) {
             first = erase(first);
         }
-        return iterator(last.node_);
+        return iterator(const_cast<Node*>(last.node_));
     }
     
     void push_back(const T& value) {
@@ -446,8 +446,8 @@ public:
     void splice(const_iterator pos, list& other) {
         if (other.empty()) return;
         
-        Node* before = pos.node_ ? pos.node_->prev : tail_;
-        Node* after = pos.node_;
+        Node* before = pos.node_ ? const_cast<Node*>(pos.node_->prev) : tail_;
+        Node* after = const_cast<Node*>(pos.node_);
         
         if (before) {
             before->next = other.head_;
@@ -595,8 +595,7 @@ private:
         Node(Args&&... args) : data(std::forward<Args>(args)...), prev(nullptr), next(nullptr) {}
     };
     
-    using NodeAllocator = typename allocator_traits<Allocator>::template rebind_alloc<Node>;
-    using NodeAllocatorTraits = allocator_traits<NodeAllocator>;
+    using NodeAllocator = typename Allocator::template rebind<Node>::other;
     
     Node* head_;
     Node* tail_;
@@ -605,19 +604,19 @@ private:
     
     template<typename... Args>
     Node* create_node(Args&&... args) {
-        Node* node = NodeAllocatorTraits::allocate(alloc_, 1);
+        Node* node = alloc_.allocate(1);
         try {
-            NodeAllocatorTraits::construct(alloc_, node, std::forward<Args>(args)...);
+            alloc_.construct(node, std::forward<Args>(args)...);
         } catch (...) {
-            NodeAllocatorTraits::deallocate(alloc_, node, 1);
+            alloc_.deallocate(node, 1);
             throw;
         }
         return node;
     }
     
     void destroy_node(Node* node) {
-        NodeAllocatorTraits::destroy(alloc_, node);
-        NodeAllocatorTraits::deallocate(alloc_, node, 1);
+        alloc_.destroy(node);
+        alloc_.deallocate(node, 1);
     }
     
     iterator insert_node(const_iterator pos, Node* new_node) {
@@ -638,11 +637,11 @@ private:
             }
             tail_ = new_node;
         } else {
-            Node* before = pos.node_->prev;
+            Node* before = const_cast<Node*>(pos.node_->prev);
             new_node->prev = before;
-            new_node->next = pos.node_;
+            new_node->next = const_cast<Node*>(pos.node_);
             before->next = new_node;
-            pos.node_->prev = new_node;
+            const_cast<Node*>(pos.node_)->prev = new_node;
         }
         
         ++size_;
