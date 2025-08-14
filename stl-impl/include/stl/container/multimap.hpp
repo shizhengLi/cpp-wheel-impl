@@ -1,5 +1,5 @@
-#ifndef STL_MAP_HPP
-#define STL_MAP_HPP
+#ifndef STL_MULTIMAP_HPP
+#define STL_MULTIMAP_HPP
 
 #include "../tree/rb_tree.hpp"
 #include "../functional.hpp"
@@ -10,15 +10,15 @@ namespace stl {
 
 // 用于从value_type（pair）中提取key的仿函数
 template <typename Key, typename Value>
-struct map_key_of_value {
+struct multimap_key_of_value {
     const Key& operator()(const std::pair<const Key, Value>& value) const {
         return value.first;
     }
 };
 
-// map容器实现
+// multimap容器实现
 template <typename Key, typename Value, typename Compare = stl::less<Key>, typename Allocator = stl::allocator<std::pair<const Key, Value>>>
-class map {
+class multimap {
 public:
     // 类型定义
     using key_type = Key;
@@ -35,7 +35,7 @@ public:
     
     // 值比较器
     class value_compare {
-        friend class map;
+        friend class multimap;
     protected:
         Compare comp;
         value_compare(Compare c) : comp(c) {}
@@ -46,7 +46,7 @@ public:
     };
     
     // 内部红黑树类型
-    using tree_type = rb_tree<key_type, value_type, map_key_of_value<key_type, mapped_type>, key_compare, allocator_type>;
+    using tree_type = rb_tree<key_type, value_type, multimap_key_of_value<key_type, mapped_type>, key_compare, allocator_type>;
     
     // 迭代器类型
     using iterator = typename tree_type::iterator;
@@ -55,15 +55,15 @@ public:
     using const_reverse_iterator = stl::reverse_iterator<const_iterator>;
     
     // 构造函数
-    map() : tree_() {}
+    multimap() : tree_() {}
     
-    explicit map(const key_compare& comp, const allocator_type& alloc = allocator_type())
+    explicit multimap(const key_compare& comp, const allocator_type& alloc = allocator_type())
         : tree_(comp) {}
     
-    explicit map(const allocator_type& alloc) : tree_() {}
+    explicit multimap(const allocator_type& alloc) : tree_() {}
     
     template <typename InputIterator>
-    map(InputIterator first, InputIterator last, 
+    multimap(InputIterator first, InputIterator last, 
         const key_compare& comp = key_compare(), 
         const allocator_type& alloc = allocator_type())
         : tree_(comp) {
@@ -71,12 +71,12 @@ public:
     }
     
     template <typename InputIterator>
-    map(InputIterator first, InputIterator last, const allocator_type& alloc)
+    multimap(InputIterator first, InputIterator last, const allocator_type& alloc)
         : tree_() {
         insert(first, last);
     }
     
-    map(std::initializer_list<value_type> init, 
+    multimap(std::initializer_list<value_type> init, 
         const key_compare& comp = key_compare(), 
         const allocator_type& alloc = allocator_type())
         : tree_(comp) {
@@ -84,51 +84,26 @@ public:
         insert(init.begin(), init.end());
     }
     
-    map(std::initializer_list<value_type> init, const allocator_type& alloc)
+    multimap(std::initializer_list<value_type> init, const allocator_type& alloc)
         : tree_() {
         insert(init.begin(), init.end());
     }
     
-    map(const map& other) = default;
+    multimap(const multimap& other) = default;
     
-    map(map&& other) noexcept = default;
+    multimap(multimap&& other) noexcept = default;
     
-    ~map() = default;
+    ~multimap() = default;
     
     // 赋值运算符
-    map& operator=(const map& other) = default;
+    multimap& operator=(const multimap& other) = default;
     
-    map& operator=(map&& other) noexcept = default;
+    multimap& operator=(multimap&& other) noexcept = default;
     
-    map& operator=(std::initializer_list<value_type> init) {
+    multimap& operator=(std::initializer_list<value_type> init) {
         clear();
         insert(init.begin(), init.end());
         return *this;
-    }
-    
-    // 元素访问
-    mapped_type& operator[](const key_type& key) {
-        return try_emplace(key).first->second;
-    }
-    
-    mapped_type& operator[](key_type&& key) {
-        return try_emplace(std::move(key)).first->second;
-    }
-    
-    mapped_type& at(const key_type& key) {
-        iterator it = find(key);
-        if (it == end()) {
-            throw std::out_of_range("map::at");
-        }
-        return it->second;
-    }
-    
-    const mapped_type& at(const key_type& key) const {
-        const_iterator it = find(key);
-        if (it == end()) {
-            throw std::out_of_range("map::at");
-        }
-        return it->second;
     }
     
     // 迭代器
@@ -156,30 +131,31 @@ public:
     // 修改器
     void clear() noexcept { tree_.clear(); }
     
-    std::pair<iterator, bool> insert(const value_type& value) {
-        return tree_.insert(value);
+    // 插入操作 - multimap允许重复键
+    iterator insert(const value_type& value) {
+        return tree_.insert_equal(value);
     }
     
-    std::pair<iterator, bool> insert(value_type&& value) {
-        return tree_.insert(std::move(value));
+    iterator insert(value_type&& value) {
+        return tree_.insert_equal(std::move(value));
     }
     
     iterator insert(const_iterator hint, const value_type& value) {
         // 忽略hint，直接插入
         (void)hint; // 避免未使用参数警告
-        return tree_.insert(value).first;
+        return tree_.insert_equal(value);
     }
     
     iterator insert(const_iterator hint, value_type&& value) {
         // 忽略hint，直接插入
         (void)hint; // 避免未使用参数警告
-        return tree_.insert(std::move(value)).first;
+        return tree_.insert_equal(std::move(value));
     }
     
     template <typename InputIterator>
     void insert(InputIterator first, InputIterator last) {
         for (; first != last; ++first) {
-            tree_.insert(*first);
+            tree_.insert_equal(*first);
         }
     }
     
@@ -188,55 +164,22 @@ public:
     }
     
     template <typename... Args>
-    std::pair<iterator, bool> emplace(Args&&... args) {
-        return tree_.emplace(std::forward<Args>(args)...);
+    iterator emplace(Args&&... args) {
+        return tree_.insert_equal(value_type(std::forward<Args>(args)...));
     }
     
     template <typename... Args>
     iterator emplace_hint(const_iterator hint, Args&&... args) {
         // 忽略hint，直接插入
         (void)hint; // 避免未使用参数警告
-        return tree_.emplace(std::forward<Args>(args)...).first;
-    }
-    
-    template <typename... Args>
-    std::pair<iterator, bool> try_emplace(const key_type& key, Args&&... args) {
-        return tree_.insert(value_type(key, mapped_type(std::forward<Args>(args)...)));
-    }
-    
-    template <typename... Args>
-    std::pair<iterator, bool> try_emplace(key_type&& key, Args&&... args) {
-        return tree_.insert(value_type(std::move(key), mapped_type(std::forward<Args>(args)...)));
-    }
-    
-    template <typename M>
-    std::pair<iterator, bool> insert_or_assign(const key_type& key, M&& obj) {
-        iterator it = find(key);
-        if (it != end()) {
-            it->second = std::forward<M>(obj);
-            return {it, false};
-        } else {
-            return emplace(key, std::forward<M>(obj));
-        }
-    }
-    
-    template <typename M>
-    std::pair<iterator, bool> insert_or_assign(key_type&& key, M&& obj) {
-        iterator it = find(key);
-        if (it != end()) {
-            it->second = std::forward<M>(obj);
-            return {it, false};
-        } else {
-            return emplace(std::move(key), std::forward<M>(obj));
-        }
+        return tree_.insert_equal(value_type(std::forward<Args>(args)...));
     }
     
     iterator erase(const_iterator pos) {
         // 简化的实现：找到键并删除
-        iterator it = tree_.find(pos->first);
-        iterator next = it;
+        iterator next = tree_.lower_bound(pos->first);
         ++next;
-        tree_.erase(it);
+        tree_.erase(tree_.find(pos->first));
         return next;
     }
     
@@ -257,21 +200,32 @@ public:
     }
     
     size_type erase(const key_type& key) {
-        iterator it = tree_.find(key);
-        if (it != end()) {
+        size_type count = 0;
+        iterator it = tree_.lower_bound(key);
+        
+        while (it != end() && it->first == key) {
+            iterator next = it;
+            ++next;
             tree_.erase(it);
-            return 1;
+            it = next;
+            count++;
         }
-        return 0;
+        
+        return count;
     }
     
-    void swap(map& other) noexcept {
+    void swap(multimap& other) noexcept {
         tree_.swap(other.tree_);
     }
     
     // 查找
     size_type count(const key_type& key) const {
-        return tree_.count(key);
+        size_type result = 0;
+        auto range = equal_range(key);
+        for (auto it = range.first; it != range.second; ++it) {
+            result++;
+        }
+        return result;
     }
     
     iterator find(const key_type& key) {
@@ -315,34 +269,40 @@ public:
     value_compare value_comp() const { return value_compare(tree_.key_comp()); }
     
     // 比较运算符
-    bool operator==(const map& other) const {
+    bool operator==(const multimap& other) const {
         if (size() != other.size()) return false;
-        for (const auto& kv : *this) {
-            auto it = other.find(kv.first);
-            if (it == other.end() || it->second != kv.second) {
+        
+        auto it1 = begin();
+        auto it2 = other.begin();
+        
+        while (it1 != end()) {
+            if (it1->first != it2->first || it1->second != it2->second) {
                 return false;
             }
+            ++it1;
+            ++it2;
         }
+        
         return true;
     }
     
-    bool operator!=(const map& other) const {
+    bool operator!=(const multimap& other) const {
         return !(*this == other);
     }
     
-    bool operator<(const map& other) const {
+    bool operator<(const multimap& other) const {
         return std::lexicographical_compare(begin(), end(), other.begin(), other.end(), value_comp());
     }
     
-    bool operator<=(const map& other) const {
+    bool operator<=(const multimap& other) const {
         return !(other < *this);
     }
     
-    bool operator>(const map& other) const {
+    bool operator>(const multimap& other) const {
         return other < *this;
     }
     
-    bool operator>=(const map& other) const {
+    bool operator>=(const multimap& other) const {
         return !(*this < other);
     }
     
@@ -350,12 +310,12 @@ private:
     tree_type tree_;
 };
 
-// map交换特化
+// multimap交换特化
 template <typename Key, typename Value, typename Compare, typename Allocator>
-void swap(map<Key, Value, Compare, Allocator>& a, map<Key, Value, Compare, Allocator>& b) noexcept {
+void swap(multimap<Key, Value, Compare, Allocator>& a, multimap<Key, Value, Compare, Allocator>& b) noexcept {
     a.swap(b);
 }
 
 } // namespace stl
 
-#endif // STL_MAP_HPP
+#endif // STL_MULTIMAP_HPP

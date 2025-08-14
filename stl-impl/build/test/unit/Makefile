@@ -211,6 +211,20 @@ minimal_deque_test/fast:
 .PHONY : minimal_deque_test/fast
 
 # Convenience name for target.
+test/unit/CMakeFiles/multimap_test.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/multimap_test.dir/rule
+.PHONY : test/unit/CMakeFiles/multimap_test.dir/rule
+
+# Convenience name for target.
+multimap_test: test/unit/CMakeFiles/multimap_test.dir/rule
+.PHONY : multimap_test
+
+# fast build rule for target.
+multimap_test/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/multimap_test.dir/build.make test/unit/CMakeFiles/multimap_test.dir/build
+.PHONY : multimap_test/fast
+
+# Convenience name for target.
 test/unit/CMakeFiles/multiset_test.dir/rule:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/multiset_test.dir/rule
 .PHONY : test/unit/CMakeFiles/multiset_test.dir/rule
@@ -452,6 +466,30 @@ minimal_deque_test.cpp.s:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/minimal_deque_test.dir/build.make test/unit/CMakeFiles/minimal_deque_test.dir/minimal_deque_test.cpp.s
 .PHONY : minimal_deque_test.cpp.s
 
+multimap_test.o: multimap_test.cpp.o
+.PHONY : multimap_test.o
+
+# target to build an object file
+multimap_test.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/multimap_test.dir/build.make test/unit/CMakeFiles/multimap_test.dir/multimap_test.cpp.o
+.PHONY : multimap_test.cpp.o
+
+multimap_test.i: multimap_test.cpp.i
+.PHONY : multimap_test.i
+
+# target to preprocess a source file
+multimap_test.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/multimap_test.dir/build.make test/unit/CMakeFiles/multimap_test.dir/multimap_test.cpp.i
+.PHONY : multimap_test.cpp.i
+
+multimap_test.s: multimap_test.cpp.s
+.PHONY : multimap_test.s
+
+# target to generate assembly for a file
+multimap_test.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/multimap_test.dir/build.make test/unit/CMakeFiles/multimap_test.dir/multimap_test.cpp.s
+.PHONY : multimap_test.cpp.s
+
 multiset_test.o: multiset_test.cpp.o
 .PHONY : multiset_test.o
 
@@ -635,6 +673,7 @@ help:
 	@echo "... list_test"
 	@echo "... map_test"
 	@echo "... minimal_deque_test"
+	@echo "... multimap_test"
 	@echo "... multiset_test"
 	@echo "... priority_queue_test"
 	@echo "... queue_test"
@@ -660,6 +699,9 @@ help:
 	@echo "... minimal_deque_test.o"
 	@echo "... minimal_deque_test.i"
 	@echo "... minimal_deque_test.s"
+	@echo "... multimap_test.o"
+	@echo "... multimap_test.i"
+	@echo "... multimap_test.s"
 	@echo "... multiset_test.o"
 	@echo "... multiset_test.i"
 	@echo "... multiset_test.s"

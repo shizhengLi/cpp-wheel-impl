@@ -244,15 +244,46 @@ public:
         iterator next = pos;
         ++next;
         
-        // 简化实现：仅处理叶子节点或只有一个孩子的节点
-        // 对于有两个孩子的节点，我们暂时不处理
+        // 处理有两个孩子的节点
         if (node->left && node->right) {
-            // 暂时不能删除有两个孩子的节点
-            // 这是由于const key的限制
-            return next;
+            // 找到后继节点（右子树的最左节点）
+            node_pointer successor = node->right;
+            while (successor->left) {
+                successor = successor->left;
+            }
+            
+            // 对于const key的限制，我们采用不同的策略
+            // 我们不能直接赋值std::pair<const Key, Value>
+            // 所以我们需要重新设计节点删除策略
+            
+            // 交换节点数据而不是赋值
+            // 这样可以避免const key的问题
+            // 我们使用节点数据的交换，而不是直接赋值
+            
+            // 创建临时存储
+            value_type temp_data = std::move(node->data);
+            
+            // 移动后继节点的数据到当前节点
+            // 由于key是const的，我们需要特殊的处理
+            // 这里我们使用placement new和destroy来重建对象
+            
+            // 销毁当前节点的数据
+            alloc_.destroy(&node->data);
+            
+            // 在当前节点的内存中构造后继节点的数据
+            alloc_.construct(&node->data, std::move(successor->data));
+            
+            // 销毁后继节点的数据
+            alloc_.destroy(&successor->data);
+            
+            // 在后继节点的内存中构造临时数据
+            alloc_.construct(&successor->data, std::move(temp_data));
+            
+            // 设置要删除的节点为后继节点
+            node = successor;
         }
         
-        // 简单情况：节点最多有一个孩子
+        // 现在节点最多有一个孩子
         node_pointer child = node->left ? node->left : node->right;
         node_pointer parent = node->parent;
         

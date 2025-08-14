@@ -205,6 +205,19 @@ minimal_deque_test/fast:
 .PHONY : minimal_deque_test/fast
 
 #=============================================================================
+# Target rules for targets named multimap_test
+
+# Build rule for target.
+multimap_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 multimap_test
+.PHONY : multimap_test
+
+# fast build rule for target.
+multimap_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/multimap_test.dir/build.make test/unit/CMakeFiles/multimap_test.dir/build
+.PHONY : multimap_test/fast
+
+#=============================================================================
 # Target rules for targets named multiset_test
 
 # Build rule for target.
@@ -310,6 +323,7 @@ help:
 	@echo "... list_test"
 	@echo "... map_test"
 	@echo "... minimal_deque_test"
+	@echo "... multimap_test"
 	@echo "... multiset_test"
 	@echo "... priority_queue_test"
 	@echo "... queue_test"
