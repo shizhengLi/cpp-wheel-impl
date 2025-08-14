@@ -140,6 +140,20 @@ allocator_test/fast:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/allocator_test.dir/build.make test/unit/CMakeFiles/allocator_test.dir/build
 .PHONY : allocator_test/fast
 
+# Convenience name for target.
+test/unit/CMakeFiles/iterator_test.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/iterator_test.dir/rule
+.PHONY : test/unit/CMakeFiles/iterator_test.dir/rule
+
+# Convenience name for target.
+iterator_test: test/unit/CMakeFiles/iterator_test.dir/rule
+.PHONY : iterator_test
+
+# fast build rule for target.
+iterator_test/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/iterator_test.dir/build.make test/unit/CMakeFiles/iterator_test.dir/build
+.PHONY : iterator_test/fast
+
 allocator_test.o: allocator_test.cpp.o
 .PHONY : allocator_test.o
 
@@ -164,6 +178,30 @@ allocator_test.cpp.s:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/allocator_test.dir/build.make test/unit/CMakeFiles/allocator_test.dir/allocator_test.cpp.s
 .PHONY : allocator_test.cpp.s
 
+iterator_test.o: iterator_test.cpp.o
+.PHONY : iterator_test.o
+
+# target to build an object file
+iterator_test.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/iterator_test.dir/build.make test/unit/CMakeFiles/iterator_test.dir/iterator_test.cpp.o
+.PHONY : iterator_test.cpp.o
+
+iterator_test.i: iterator_test.cpp.i
+.PHONY : iterator_test.i
+
+# target to preprocess a source file
+iterator_test.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/iterator_test.dir/build.make test/unit/CMakeFiles/iterator_test.dir/iterator_test.cpp.i
+.PHONY : iterator_test.cpp.i
+
+iterator_test.s: iterator_test.cpp.s
+.PHONY : iterator_test.s
+
+# target to generate assembly for a file
+iterator_test.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/iterator_test.dir/build.make test/unit/CMakeFiles/iterator_test.dir/iterator_test.cpp.s
+.PHONY : iterator_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -174,9 +212,13 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... allocator_test"
+	@echo "... iterator_test"
 	@echo "... allocator_test.o"
 	@echo "... allocator_test.i"
 	@echo "... allocator_test.s"
+	@echo "... iterator_test.o"
+	@echo "... iterator_test.i"
+	@echo "... iterator_test.s"
 .PHONY : help
 
 

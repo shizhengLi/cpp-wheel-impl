@@ -139,6 +139,19 @@ allocator_test/fast:
 	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/allocator_test.dir/build.make test/unit/CMakeFiles/allocator_test.dir/build
 .PHONY : allocator_test/fast
 
+#=============================================================================
+# Target rules for targets named iterator_test
+
+# Build rule for target.
+iterator_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 iterator_test
+.PHONY : iterator_test
+
+# fast build rule for target.
+iterator_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/iterator_test.dir/build.make test/unit/CMakeFiles/iterator_test.dir/build
+.PHONY : iterator_test/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -149,6 +162,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... allocator_test"
+	@echo "... iterator_test"
 .PHONY : help
 
 
