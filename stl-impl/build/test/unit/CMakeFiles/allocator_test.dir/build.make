@@ -92,8 +92,8 @@ allocator_test_EXTERNAL_OBJECTS =
 
 test/unit/allocator_test: test/unit/CMakeFiles/allocator_test.dir/allocator_test.cpp.o
 test/unit/allocator_test: test/unit/CMakeFiles/allocator_test.dir/build.make
-test/unit/allocator_test: /data/lishizheng/anaconda3/lib/libgtest_main.so.1.11.0
-test/unit/allocator_test: /data/lishizheng/anaconda3/lib/libgtest.so.1.11.0
+test/unit/allocator_test: /usr/lib/x86_64-linux-gnu/libgtest_main.a
+test/unit/allocator_test: /usr/lib/x86_64-linux-gnu/libgtest.a
 test/unit/allocator_test: test/unit/CMakeFiles/allocator_test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable allocator_test"
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/allocator_test.dir/link.txt --verbose=$(VERBOSE)

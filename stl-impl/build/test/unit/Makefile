@@ -141,6 +141,20 @@ allocator_test/fast:
 .PHONY : allocator_test/fast
 
 # Convenience name for target.
+test/unit/CMakeFiles/functional_test.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/functional_test.dir/rule
+.PHONY : test/unit/CMakeFiles/functional_test.dir/rule
+
+# Convenience name for target.
+functional_test: test/unit/CMakeFiles/functional_test.dir/rule
+.PHONY : functional_test
+
+# fast build rule for target.
+functional_test/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/functional_test.dir/build.make test/unit/CMakeFiles/functional_test.dir/build
+.PHONY : functional_test/fast
+
+# Convenience name for target.
 test/unit/CMakeFiles/iterator_test.dir/rule:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/iterator_test.dir/rule
 .PHONY : test/unit/CMakeFiles/iterator_test.dir/rule
@@ -178,6 +192,30 @@ allocator_test.cpp.s:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/allocator_test.dir/build.make test/unit/CMakeFiles/allocator_test.dir/allocator_test.cpp.s
 .PHONY : allocator_test.cpp.s
 
+functional_test.o: functional_test.cpp.o
+.PHONY : functional_test.o
+
+# target to build an object file
+functional_test.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/functional_test.dir/build.make test/unit/CMakeFiles/functional_test.dir/functional_test.cpp.o
+.PHONY : functional_test.cpp.o
+
+functional_test.i: functional_test.cpp.i
+.PHONY : functional_test.i
+
+# target to preprocess a source file
+functional_test.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/functional_test.dir/build.make test/unit/CMakeFiles/functional_test.dir/functional_test.cpp.i
+.PHONY : functional_test.cpp.i
+
+functional_test.s: functional_test.cpp.s
+.PHONY : functional_test.s
+
+# target to generate assembly for a file
+functional_test.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/functional_test.dir/build.make test/unit/CMakeFiles/functional_test.dir/functional_test.cpp.s
+.PHONY : functional_test.cpp.s
+
 iterator_test.o: iterator_test.cpp.o
 .PHONY : iterator_test.o
 
@@ -212,10 +250,14 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... allocator_test"
+	@echo "... functional_test"
 	@echo "... iterator_test"
 	@echo "... allocator_test.o"
 	@echo "... allocator_test.i"
 	@echo "... allocator_test.s"
+	@echo "... functional_test.o"
+	@echo "... functional_test.i"
+	@echo "... functional_test.s"
 	@echo "... iterator_test.o"
 	@echo "... iterator_test.i"
 	@echo "... iterator_test.s"

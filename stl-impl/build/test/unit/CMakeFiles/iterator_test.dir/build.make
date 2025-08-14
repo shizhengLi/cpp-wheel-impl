@@ -92,8 +92,8 @@ iterator_test_EXTERNAL_OBJECTS =
 
 test/unit/iterator_test: test/unit/CMakeFiles/iterator_test.dir/iterator_test.cpp.o
 test/unit/iterator_test: test/unit/CMakeFiles/iterator_test.dir/build.make
-test/unit/iterator_test: /data/lishizheng/anaconda3/lib/libgtest_main.so.1.11.0
-test/unit/iterator_test: /data/lishizheng/anaconda3/lib/libgtest.so.1.11.0
+test/unit/iterator_test: /usr/lib/x86_64-linux-gnu/libgtest_main.a
+test/unit/iterator_test: /usr/lib/x86_64-linux-gnu/libgtest.a
 test/unit/iterator_test: test/unit/CMakeFiles/iterator_test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable iterator_test"
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build/test/unit && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/iterator_test.dir/link.txt --verbose=$(VERBOSE)

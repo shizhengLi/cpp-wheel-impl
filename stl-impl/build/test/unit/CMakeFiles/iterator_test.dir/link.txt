@@ -1,1 +1,1 @@
-/usr/bin/c++  -Wall -Wextra -Werror CMakeFiles/iterator_test.dir/iterator_test.cpp.o -o iterator_test  -Wl,-rpath,/data/lishizheng/anaconda3/lib /data/lishizheng/anaconda3/lib/libgtest_main.so.1.11.0 /data/lishizheng/anaconda3/lib/libgtest.so.1.11.0 
+/usr/bin/c++  -Wall -Wextra -Werror CMakeFiles/iterator_test.dir/iterator_test.cpp.o -o iterator_test  /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a 

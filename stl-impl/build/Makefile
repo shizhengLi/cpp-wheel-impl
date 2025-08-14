@@ -140,6 +140,19 @@ allocator_test/fast:
 .PHONY : allocator_test/fast
 
 #=============================================================================
+# Target rules for targets named functional_test
+
+# Build rule for target.
+functional_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 functional_test
+.PHONY : functional_test
+
+# fast build rule for target.
+functional_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/functional_test.dir/build.make test/unit/CMakeFiles/functional_test.dir/build
+.PHONY : functional_test/fast
+
+#=============================================================================
 # Target rules for targets named iterator_test
 
 # Build rule for target.
@@ -162,6 +175,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... allocator_test"
+	@echo "... functional_test"
 	@echo "... iterator_test"
 .PHONY : help
 
