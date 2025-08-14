@@ -33,6 +33,16 @@ cpp-wheel-impl/
 └── C++_轮子实现计划.md  # 本文档
 ```
 
+### 测试举例
+
+```c
+cd cpp-wheel-impl/impl/string/build && make && ./bin/string_test
+
+make clean && make 2>&1 | grep -i warning || echo "No warnings found"
+
+valgrind --leak-check=full --show-leak-kinds=all ./bin/string_test 2>&1 | grep -E "(ERROR SUMMARY|definitely lost|indirectly lost|possibly lost)" || echo "Memory Leak"
+```
+
 ## 轮子实现列表
 
 ### 基础篇：入门级组件
