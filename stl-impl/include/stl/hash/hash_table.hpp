@@ -283,6 +283,10 @@ public:
     }
     
     iterator erase(const_iterator pos) {
+        return erase(iterator(pos.node_, const_cast<bucket_array_pointer>(pos.bucket_array_), pos.bucket_index_));
+    }
+    
+    iterator erase(iterator pos) {
         if (pos == end()) return end();
         
         size_type index = pos.bucket_index_;
