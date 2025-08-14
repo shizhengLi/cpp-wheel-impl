@@ -164,14 +164,14 @@ public:
         // 简化的实现：找到键并删除
         key_type key = *pos;
         tree_.erase(tree_.find(key));
-        return tree_.find(key);
+        return tree_.lower_bound(key);
     }
     
     iterator erase(iterator pos) {
         // 简化的实现：找到键并删除
         key_type key = *pos;
         tree_.erase(tree_.find(key));
-        return tree_.find(key);
+        return tree_.lower_bound(key);
     }
     
     iterator erase(const_iterator first, const_iterator last) {
