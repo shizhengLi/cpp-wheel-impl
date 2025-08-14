@@ -12,6 +12,7 @@ GTEST_LIBS = -lgtest -lgtest_main -pthread
 # Test source files (excluding hash container tests which have their own makefile)
 # Note: test_include.cpp is excluded as it's a simple compilation test
 TEST_SOURCES = \
+	algorithm_test.cpp \
 	allocator_test.cpp \
 	functional_test.cpp \
 	iterator_test.cpp \
