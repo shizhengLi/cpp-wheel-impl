@@ -197,6 +197,20 @@ minimal_deque_test/fast:
 .PHONY : minimal_deque_test/fast
 
 # Convenience name for target.
+test/unit/CMakeFiles/multiset_test.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/multiset_test.dir/rule
+.PHONY : test/unit/CMakeFiles/multiset_test.dir/rule
+
+# Convenience name for target.
+multiset_test: test/unit/CMakeFiles/multiset_test.dir/rule
+.PHONY : multiset_test
+
+# fast build rule for target.
+multiset_test/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/multiset_test.dir/build.make test/unit/CMakeFiles/multiset_test.dir/build
+.PHONY : multiset_test/fast
+
+# Convenience name for target.
 test/unit/CMakeFiles/priority_queue_test.dir/rule:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/priority_queue_test.dir/rule
 .PHONY : test/unit/CMakeFiles/priority_queue_test.dir/rule
@@ -400,6 +414,30 @@ minimal_deque_test.cpp.s:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/minimal_deque_test.dir/build.make test/unit/CMakeFiles/minimal_deque_test.dir/minimal_deque_test.cpp.s
 .PHONY : minimal_deque_test.cpp.s
 
+multiset_test.o: multiset_test.cpp.o
+.PHONY : multiset_test.o
+
+# target to build an object file
+multiset_test.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/multiset_test.dir/build.make test/unit/CMakeFiles/multiset_test.dir/multiset_test.cpp.o
+.PHONY : multiset_test.cpp.o
+
+multiset_test.i: multiset_test.cpp.i
+.PHONY : multiset_test.i
+
+# target to preprocess a source file
+multiset_test.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/multiset_test.dir/build.make test/unit/CMakeFiles/multiset_test.dir/multiset_test.cpp.i
+.PHONY : multiset_test.cpp.i
+
+multiset_test.s: multiset_test.cpp.s
+.PHONY : multiset_test.s
+
+# target to generate assembly for a file
+multiset_test.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/multiset_test.dir/build.make test/unit/CMakeFiles/multiset_test.dir/multiset_test.cpp.s
+.PHONY : multiset_test.cpp.s
+
 priority_queue_test.o: priority_queue_test.cpp.o
 .PHONY : priority_queue_test.o
 
@@ -558,6 +596,7 @@ help:
 	@echo "... iterator_test"
 	@echo "... list_test"
 	@echo "... minimal_deque_test"
+	@echo "... multiset_test"
 	@echo "... priority_queue_test"
 	@echo "... queue_test"
 	@echo "... rb_tree_test_simple"
@@ -579,6 +618,9 @@ help:
 	@echo "... minimal_deque_test.o"
 	@echo "... minimal_deque_test.i"
 	@echo "... minimal_deque_test.s"
+	@echo "... multiset_test.o"
+	@echo "... multiset_test.i"
+	@echo "... multiset_test.s"
 	@echo "... priority_queue_test.o"
 	@echo "... priority_queue_test.i"
 	@echo "... priority_queue_test.s"

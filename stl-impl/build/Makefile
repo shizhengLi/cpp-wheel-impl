@@ -192,6 +192,19 @@ minimal_deque_test/fast:
 .PHONY : minimal_deque_test/fast
 
 #=============================================================================
+# Target rules for targets named multiset_test
+
+# Build rule for target.
+multiset_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 multiset_test
+.PHONY : multiset_test
+
+# fast build rule for target.
+multiset_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/multiset_test.dir/build.make test/unit/CMakeFiles/multiset_test.dir/build
+.PHONY : multiset_test/fast
+
+#=============================================================================
 # Target rules for targets named priority_queue_test
 
 # Build rule for target.
@@ -283,6 +296,7 @@ help:
 	@echo "... iterator_test"
 	@echo "... list_test"
 	@echo "... minimal_deque_test"
+	@echo "... multiset_test"
 	@echo "... priority_queue_test"
 	@echo "... queue_test"
 	@echo "... rb_tree_test_simple"

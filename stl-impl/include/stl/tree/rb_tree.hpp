@@ -227,6 +227,15 @@ public:
         return insert_unique(value_type(std::forward<Args>(args)...));
     }
     
+    // 允许重复的插入操作（用于multiset）
+    iterator insert_equal(const value_type& value) {
+        return insert_equal_impl(value);
+    }
+    
+    iterator insert_equal(value_type&& value) {
+        return insert_equal_impl(std::move(value));
+    }
+    
     // 删除操作
     iterator erase(iterator pos) {
         if (pos == end()) return pos;
@@ -354,6 +363,32 @@ private:
     
     // 红黑树删除修复
     void erase_fixup(node_pointer node);
+    
+    // 允许重复的插入实现
+    template <typename V>
+    iterator insert_equal_impl(V&& value) {
+        node_pointer parent = nullptr;
+        node_pointer* link = &root_;
+        
+        while (*link) {
+            parent = *link;
+            if (comp_(key_of_value()(value), key_of_value()(parent->data))) {
+                link = &parent->left;
+            } else {
+                // 对于multiset，相等的元素插入到右子树
+                link = &parent->right;
+            }
+        }
+        
+        node_pointer new_node = create_node<V>(std::forward<V>(value), parent);
+        *link = new_node;
+        ++size_;
+        
+        // 红黑树插入修复
+        insert_fixup(new_node);
+        
+        return iterator(new_node);
+    }
     
     // 辅助函数
     node_pointer leftmost() const {
