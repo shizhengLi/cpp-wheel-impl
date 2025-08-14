@@ -47,8 +47,9 @@ public:
     tuple& operator=(const tuple&) = default;
     tuple& operator=(tuple&&) = default;
     
-    void swap(tuple& other) {
+    void swap(tuple& other) noexcept {
         // 空tuple，无需操作
+        (void)other; // 避免未使用参数警告
     }
 };
 
@@ -73,10 +74,9 @@ public:
     explicit tuple(const Head& head, const Tail&... tail) 
         : head_(head), tail_(tail...) {}
     
-    // 完美转发构造
-    template <typename U, typename... Us>
-    explicit tuple(U&& u, Us&&... us) 
-        : head_(std::forward<U>(u)), tail_(std::forward<Us>(us)...) {}
+    // 移动构造
+    explicit tuple(Head&& head, Tail&&... tail) 
+        : head_(std::move(head)), tail_(std::move(tail)...) {}
     
     // 拷贝赋值
     tuple& operator=(const tuple&) = default;
