@@ -60,6 +60,7 @@ public:
     template <typename InputIterator>
     multiset(InputIterator first, InputIterator last, const allocator_type& alloc)
         : tree_() {
+        (void)alloc; // 避免未使用参数警告
         insert(first, last);
     }
     
@@ -73,6 +74,7 @@ public:
     
     multiset(std::initializer_list<value_type> init, const allocator_type& alloc)
         : tree_() {
+        (void)alloc; // 避免未使用参数警告
         insert(init.begin(), init.end());
     }
     
@@ -197,7 +199,13 @@ public:
     // 查找
     size_type count(const key_type& key) const {
         auto range = equal_range(key);
-        return std::distance(range.first, range.second);
+        size_type count = 0;
+        auto it = range.first;
+        while (it != range.second) {
+            ++count;
+            ++it;
+        }
+        return count;
     }
     
     iterator find(const key_type& key) {

@@ -185,14 +185,14 @@ TEST(MultiSetTest, Emplace) {
     stl::multiset<std::pair<int, std::string>> ms;
     
     // 测试 emplace
-    auto result = ms.emplace(1, "one");
-    EXPECT_EQ(result.first->first, 1);
-    EXPECT_EQ(result.first->second, "one");
+    auto it = ms.emplace(1, "one");
+    EXPECT_EQ(it->first, 1);
+    EXPECT_EQ(it->second, "one");
     
     // 测试重复 emplace
-    result = ms.emplace(1, "one");
-    EXPECT_EQ(result.first->first, 1);
-    EXPECT_EQ(result.first->second, "one");
+    it = ms.emplace(1, "one");
+    EXPECT_EQ(it->first, 1);
+    EXPECT_EQ(it->second, "one");
 }
 
 TEST(MultiSetTest, LargeDataset) {
