@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wextra -Werror CMakeFiles/variant_test.dir/test/variant_test.cpp.o -o bin/variant_test  -Wl,-rpath,/data/lishizheng/anaconda3/lib /data/lishizheng/anaconda3/lib/libgtest_main.so.1.11.0 /data/lishizheng/anaconda3/lib/libgtest.so.1.11.0 
