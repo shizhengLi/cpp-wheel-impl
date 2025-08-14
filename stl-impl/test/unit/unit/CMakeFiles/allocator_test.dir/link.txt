@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/allocator_test.dir/allocator_test.o -o allocator_test  -lGTest::GTest -lGTest::Main -lThreads::Threads 

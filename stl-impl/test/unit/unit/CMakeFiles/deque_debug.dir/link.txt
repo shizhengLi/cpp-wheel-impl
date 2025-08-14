@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/deque_debug.dir/deque_debug.o -o deque_debug  -lGTest::GTest -lGTest::Main -lThreads::Threads 

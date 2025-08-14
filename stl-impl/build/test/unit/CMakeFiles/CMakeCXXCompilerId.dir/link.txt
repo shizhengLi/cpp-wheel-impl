@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wextra -Werror CMakeFiles/CMakeCXXCompilerId.dir/CMakeFiles/3.24.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.o -o CMakeCXXCompilerId  /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a 
