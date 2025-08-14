@@ -68,7 +68,10 @@ set(CMAKE_DEPEND_INFO_FILES
   "test/unit/CMakeFiles/iterator_test.dir/DependInfo.cmake"
   "test/unit/CMakeFiles/list_test.dir/DependInfo.cmake"
   "test/unit/CMakeFiles/minimal_deque_test.dir/DependInfo.cmake"
+  "test/unit/CMakeFiles/priority_queue_test.dir/DependInfo.cmake"
   "test/unit/CMakeFiles/queue_test.dir/DependInfo.cmake"
+  "test/unit/CMakeFiles/rb_tree_test_simple.dir/DependInfo.cmake"
+  "test/unit/CMakeFiles/set_test.dir/DependInfo.cmake"
   "test/unit/CMakeFiles/stack_test.dir/DependInfo.cmake"
   "test/unit/CMakeFiles/vector_test.dir/DependInfo.cmake"
   )

@@ -227,6 +227,53 @@ public:
         return insert_unique(value_type(std::forward<Args>(args)...));
     }
     
+    // 删除操作
+    iterator erase(iterator pos) {
+        if (pos == end()) return pos;
+        
+        node_pointer node = pos.node_;
+        iterator next = pos;
+        ++next;
+        
+        if (node->left && node->right) {
+            // 节点有两个孩子，找到后继节点
+            node_pointer successor = node->right;
+            while (successor->left) {
+                successor = successor->left;
+            }
+            // 复制后继节点的值
+            node->data = std::move(successor->data);
+            node = successor; // 现在删除这个后继节点
+        }
+        
+        // 现在节点最多有一个孩子
+        node_pointer child = node->left ? node->left : node->right;
+        node_pointer parent = node->parent;
+        
+        if (child) {
+            child->parent = parent;
+        }
+        
+        if (!parent) {
+            root_ = child;
+        } else if (parent->left == node) {
+            parent->left = child;
+        } else {
+            parent->right = child;
+        }
+        
+        if (node->color == rb_color::black) {
+            if (child) {
+                erase_fixup(child);
+            }
+        }
+        
+        destroy_node(node);
+        --size_;
+        
+        return next;
+    }
+    
     // 查找操作
     iterator find(const key_type& key) {
         node_pointer node = find_node(key);
@@ -277,11 +324,22 @@ public:
     bool is_valid_rb_tree() const;
     void verify_properties() const;
     
+    // 交换操作
+    void swap(rb_tree& other) noexcept {
+        std::swap(root_, other.root_);
+        std::swap(size_, other.size_);
+        std::swap(comp_, other.comp_);
+        std::swap(alloc_, other.alloc_);
+    }
+    
 private:
     node_pointer root_;
     size_type size_;
     key_compare comp_;
     node_allocator alloc_;
+    
+    // 红黑树删除修复
+    void erase_fixup(node_pointer node);
     
     // 辅助函数
     node_pointer leftmost() const {
@@ -525,6 +583,76 @@ void rb_tree<Key, Value, KeyOfValue, Compare, Allocator>::transplant(node_pointe
     
     if (v) {
         v->parent = u->parent;
+    }
+}
+
+template <typename Key, typename Value, typename KeyOfValue, typename Compare, typename Allocator>
+void rb_tree<Key, Value, KeyOfValue, Compare, Allocator>::erase_fixup(node_pointer node) {
+    while (node != root_ && (!node || node->color == rb_color::black)) {
+        if (node == node->parent->left) {
+            node_pointer sibling = node->parent->right;
+            if (sibling && sibling->color == rb_color::red) {
+                // 情况1：兄弟是红色
+                sibling->color = rb_color::black;
+                node->parent->color = rb_color::red;
+                left_rotate(node->parent);
+                sibling = node->parent->right;
+            }
+            
+            if ((!sibling->left || sibling->left->color == rb_color::black) &&
+                (!sibling->right || sibling->right->color == rb_color::black)) {
+                // 情况2：兄弟的两个孩子都是黑色
+                sibling->color = rb_color::red;
+                node = node->parent;
+            } else {
+                if (!sibling->right || sibling->right->color == rb_color::black) {
+                    // 情况3：兄弟的左孩子是红色，右孩子是黑色
+                    if (sibling->left) sibling->left->color = rb_color::black;
+                    sibling->color = rb_color::red;
+                    right_rotate(sibling);
+                    sibling = node->parent->right;
+                }
+                
+                // 情况4：兄弟的右孩子是红色
+                sibling->color = node->parent->color;
+                node->parent->color = rb_color::black;
+                if (sibling->right) sibling->right->color = rb_color::black;
+                left_rotate(node->parent);
+                node = root_;
+            }
+        } else {
+            // 对称情况
+            node_pointer sibling = node->parent->left;
+            if (sibling && sibling->color == rb_color::red) {
+                sibling->color = rb_color::black;
+                node->parent->color = rb_color::red;
+                right_rotate(node->parent);
+                sibling = node->parent->left;
+            }
+            
+            if ((!sibling->left || sibling->left->color == rb_color::black) &&
+                (!sibling->right || sibling->right->color == rb_color::black)) {
+                sibling->color = rb_color::red;
+                node = node->parent;
+            } else {
+                if (!sibling->left || sibling->left->color == rb_color::black) {
+                    if (sibling->right) sibling->right->color = rb_color::black;
+                    sibling->color = rb_color::red;
+                    left_rotate(sibling);
+                    sibling = node->parent->left;
+                }
+                
+                sibling->color = node->parent->color;
+                node->parent->color = rb_color::black;
+                if (sibling->left) sibling->left->color = rb_color::black;
+                right_rotate(node->parent);
+                node = root_;
+            }
+        }
+    }
+    
+    if (node) {
+        node->color = rb_color::black;
     }
 }
 

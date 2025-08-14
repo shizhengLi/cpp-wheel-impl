@@ -192,6 +192,19 @@ minimal_deque_test/fast:
 .PHONY : minimal_deque_test/fast
 
 #=============================================================================
+# Target rules for targets named priority_queue_test
+
+# Build rule for target.
+priority_queue_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 priority_queue_test
+.PHONY : priority_queue_test
+
+# fast build rule for target.
+priority_queue_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/priority_queue_test.dir/build.make test/unit/CMakeFiles/priority_queue_test.dir/build
+.PHONY : priority_queue_test/fast
+
+#=============================================================================
 # Target rules for targets named queue_test
 
 # Build rule for target.
@@ -203,6 +216,32 @@ queue_test: cmake_check_build_system
 queue_test/fast:
 	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/queue_test.dir/build.make test/unit/CMakeFiles/queue_test.dir/build
 .PHONY : queue_test/fast
+
+#=============================================================================
+# Target rules for targets named rb_tree_test_simple
+
+# Build rule for target.
+rb_tree_test_simple: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rb_tree_test_simple
+.PHONY : rb_tree_test_simple
+
+# fast build rule for target.
+rb_tree_test_simple/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/rb_tree_test_simple.dir/build.make test/unit/CMakeFiles/rb_tree_test_simple.dir/build
+.PHONY : rb_tree_test_simple/fast
+
+#=============================================================================
+# Target rules for targets named set_test
+
+# Build rule for target.
+set_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 set_test
+.PHONY : set_test
+
+# fast build rule for target.
+set_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/set_test.dir/build.make test/unit/CMakeFiles/set_test.dir/build
+.PHONY : set_test/fast
 
 #=============================================================================
 # Target rules for targets named stack_test
@@ -244,7 +283,10 @@ help:
 	@echo "... iterator_test"
 	@echo "... list_test"
 	@echo "... minimal_deque_test"
+	@echo "... priority_queue_test"
 	@echo "... queue_test"
+	@echo "... rb_tree_test_simple"
+	@echo "... set_test"
 	@echo "... stack_test"
 	@echo "... vector_test"
 .PHONY : help

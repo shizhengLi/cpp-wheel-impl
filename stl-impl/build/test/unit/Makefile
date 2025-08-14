@@ -197,6 +197,20 @@ minimal_deque_test/fast:
 .PHONY : minimal_deque_test/fast
 
 # Convenience name for target.
+test/unit/CMakeFiles/priority_queue_test.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/priority_queue_test.dir/rule
+.PHONY : test/unit/CMakeFiles/priority_queue_test.dir/rule
+
+# Convenience name for target.
+priority_queue_test: test/unit/CMakeFiles/priority_queue_test.dir/rule
+.PHONY : priority_queue_test
+
+# fast build rule for target.
+priority_queue_test/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/priority_queue_test.dir/build.make test/unit/CMakeFiles/priority_queue_test.dir/build
+.PHONY : priority_queue_test/fast
+
+# Convenience name for target.
 test/unit/CMakeFiles/queue_test.dir/rule:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/queue_test.dir/rule
 .PHONY : test/unit/CMakeFiles/queue_test.dir/rule
@@ -209,6 +223,34 @@ queue_test: test/unit/CMakeFiles/queue_test.dir/rule
 queue_test/fast:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/queue_test.dir/build.make test/unit/CMakeFiles/queue_test.dir/build
 .PHONY : queue_test/fast
+
+# Convenience name for target.
+test/unit/CMakeFiles/rb_tree_test_simple.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/rb_tree_test_simple.dir/rule
+.PHONY : test/unit/CMakeFiles/rb_tree_test_simple.dir/rule
+
+# Convenience name for target.
+rb_tree_test_simple: test/unit/CMakeFiles/rb_tree_test_simple.dir/rule
+.PHONY : rb_tree_test_simple
+
+# fast build rule for target.
+rb_tree_test_simple/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/rb_tree_test_simple.dir/build.make test/unit/CMakeFiles/rb_tree_test_simple.dir/build
+.PHONY : rb_tree_test_simple/fast
+
+# Convenience name for target.
+test/unit/CMakeFiles/set_test.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/set_test.dir/rule
+.PHONY : test/unit/CMakeFiles/set_test.dir/rule
+
+# Convenience name for target.
+set_test: test/unit/CMakeFiles/set_test.dir/rule
+.PHONY : set_test
+
+# fast build rule for target.
+set_test/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/set_test.dir/build.make test/unit/CMakeFiles/set_test.dir/build
+.PHONY : set_test/fast
 
 # Convenience name for target.
 test/unit/CMakeFiles/stack_test.dir/rule:
@@ -358,6 +400,30 @@ minimal_deque_test.cpp.s:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/minimal_deque_test.dir/build.make test/unit/CMakeFiles/minimal_deque_test.dir/minimal_deque_test.cpp.s
 .PHONY : minimal_deque_test.cpp.s
 
+priority_queue_test.o: priority_queue_test.cpp.o
+.PHONY : priority_queue_test.o
+
+# target to build an object file
+priority_queue_test.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/priority_queue_test.dir/build.make test/unit/CMakeFiles/priority_queue_test.dir/priority_queue_test.cpp.o
+.PHONY : priority_queue_test.cpp.o
+
+priority_queue_test.i: priority_queue_test.cpp.i
+.PHONY : priority_queue_test.i
+
+# target to preprocess a source file
+priority_queue_test.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/priority_queue_test.dir/build.make test/unit/CMakeFiles/priority_queue_test.dir/priority_queue_test.cpp.i
+.PHONY : priority_queue_test.cpp.i
+
+priority_queue_test.s: priority_queue_test.cpp.s
+.PHONY : priority_queue_test.s
+
+# target to generate assembly for a file
+priority_queue_test.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/priority_queue_test.dir/build.make test/unit/CMakeFiles/priority_queue_test.dir/priority_queue_test.cpp.s
+.PHONY : priority_queue_test.cpp.s
+
 queue_test.o: queue_test.cpp.o
 .PHONY : queue_test.o
 
@@ -381,6 +447,54 @@ queue_test.s: queue_test.cpp.s
 queue_test.cpp.s:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/queue_test.dir/build.make test/unit/CMakeFiles/queue_test.dir/queue_test.cpp.s
 .PHONY : queue_test.cpp.s
+
+rb_tree_test_simple.o: rb_tree_test_simple.cpp.o
+.PHONY : rb_tree_test_simple.o
+
+# target to build an object file
+rb_tree_test_simple.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/rb_tree_test_simple.dir/build.make test/unit/CMakeFiles/rb_tree_test_simple.dir/rb_tree_test_simple.cpp.o
+.PHONY : rb_tree_test_simple.cpp.o
+
+rb_tree_test_simple.i: rb_tree_test_simple.cpp.i
+.PHONY : rb_tree_test_simple.i
+
+# target to preprocess a source file
+rb_tree_test_simple.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/rb_tree_test_simple.dir/build.make test/unit/CMakeFiles/rb_tree_test_simple.dir/rb_tree_test_simple.cpp.i
+.PHONY : rb_tree_test_simple.cpp.i
+
+rb_tree_test_simple.s: rb_tree_test_simple.cpp.s
+.PHONY : rb_tree_test_simple.s
+
+# target to generate assembly for a file
+rb_tree_test_simple.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/rb_tree_test_simple.dir/build.make test/unit/CMakeFiles/rb_tree_test_simple.dir/rb_tree_test_simple.cpp.s
+.PHONY : rb_tree_test_simple.cpp.s
+
+set_test.o: set_test.cpp.o
+.PHONY : set_test.o
+
+# target to build an object file
+set_test.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/set_test.dir/build.make test/unit/CMakeFiles/set_test.dir/set_test.cpp.o
+.PHONY : set_test.cpp.o
+
+set_test.i: set_test.cpp.i
+.PHONY : set_test.i
+
+# target to preprocess a source file
+set_test.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/set_test.dir/build.make test/unit/CMakeFiles/set_test.dir/set_test.cpp.i
+.PHONY : set_test.cpp.i
+
+set_test.s: set_test.cpp.s
+.PHONY : set_test.s
+
+# target to generate assembly for a file
+set_test.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/set_test.dir/build.make test/unit/CMakeFiles/set_test.dir/set_test.cpp.s
+.PHONY : set_test.cpp.s
 
 stack_test.o: stack_test.cpp.o
 .PHONY : stack_test.o
@@ -444,7 +558,10 @@ help:
 	@echo "... iterator_test"
 	@echo "... list_test"
 	@echo "... minimal_deque_test"
+	@echo "... priority_queue_test"
 	@echo "... queue_test"
+	@echo "... rb_tree_test_simple"
+	@echo "... set_test"
 	@echo "... stack_test"
 	@echo "... vector_test"
 	@echo "... allocator_test.o"
@@ -462,9 +579,18 @@ help:
 	@echo "... minimal_deque_test.o"
 	@echo "... minimal_deque_test.i"
 	@echo "... minimal_deque_test.s"
+	@echo "... priority_queue_test.o"
+	@echo "... priority_queue_test.i"
+	@echo "... priority_queue_test.s"
 	@echo "... queue_test.o"
 	@echo "... queue_test.i"
 	@echo "... queue_test.s"
+	@echo "... rb_tree_test_simple.o"
+	@echo "... rb_tree_test_simple.i"
+	@echo "... rb_tree_test_simple.s"
+	@echo "... set_test.o"
+	@echo "... set_test.i"
+	@echo "... set_test.s"
 	@echo "... stack_test.o"
 	@echo "... stack_test.i"
 	@echo "... stack_test.s"
