@@ -3,6 +3,7 @@
 #include <type_traits>
 #include <utility>
 #include <functional>
+#include <string>
 
 namespace stl {
 
@@ -574,6 +575,18 @@ template<typename T>
 struct hash<T*> {
     size_t operator()(T* p) const noexcept {
         return reinterpret_cast<size_t>(p);
+    }
+};
+
+// std::string的哈希特化
+template<>
+struct hash<std::string> {
+    size_t operator()(const std::string& str) const noexcept {
+        size_t hash = 5381;
+        for (char c : str) {
+            hash = ((hash << 5) + hash) + c; // hash * 33 + c
+        }
+        return hash;
     }
 };
 

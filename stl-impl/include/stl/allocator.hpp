@@ -6,6 +6,9 @@
 #include <new>
 #include <limits>
 #include <type_traits>
+#include <utility>
+#include <iterator>
+#include <cstdint>
 
 namespace stl {
 
@@ -19,8 +22,8 @@ public:
     using const_pointer = const T*;
     using reference = T&;
     using const_reference = const T&;
-    using size_type = std::size_t;
-    using difference_type = std::ptrdiff_t;
+    using size_type = size_t;
+    using difference_type = ptrdiff_t;
     
     // rebind用于分配不同类型的内存
     template <typename U>
