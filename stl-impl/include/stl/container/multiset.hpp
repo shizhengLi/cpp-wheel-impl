@@ -181,9 +181,13 @@ public:
     size_type erase(const key_type& key) {
         size_type count = 0;
         auto it = lower_bound(key);
-        while (it != end() && *it == key) {
-            it = erase(it);
-            count++;
+        while (it != end()) {
+            if (*it == key) {
+                it = erase(it);
+                count++;
+            } else {
+                break;
+            }
         }
         return count;
     }
