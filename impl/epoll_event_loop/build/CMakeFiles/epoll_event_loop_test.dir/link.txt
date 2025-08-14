@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wextra -Werror -pthread CMakeFiles/epoll_event_loop_test.dir/test/epoll_event_loop_test.cpp.o CMakeFiles/epoll_event_loop_test.dir/include/epoll_event_loop.cpp.o -o epoll_event_loop_test  /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a 
