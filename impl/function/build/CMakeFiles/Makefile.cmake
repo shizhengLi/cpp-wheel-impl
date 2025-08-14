@@ -11,7 +11,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/data/lishizheng/anaconda3/lib/cmake/GTest/GTestConfigVersion.cmake"
   "/data/lishizheng/anaconda3/lib/cmake/GTest/GTestTargets-release.cmake"
   "/data/lishizheng/anaconda3/lib/cmake/GTest/GTestTargets.cmake"
-  "/data/lishizheng/cpp_projects/cpp-wheel-impl/impl/shared_ptr/CMakeLists.txt"
+  "/data/lishizheng/cpp_projects/cpp-wheel-impl/impl/function/CMakeLists.txt"
   "CMakeFiles/3.24.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.24.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.24.3/CMakeSystem.cmake"
@@ -57,5 +57,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/shared_ptr_test.dir/DependInfo.cmake"
+  "CMakeFiles/function_test.dir/DependInfo.cmake"
   )
