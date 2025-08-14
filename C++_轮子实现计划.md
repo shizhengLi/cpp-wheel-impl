@@ -38,6 +38,8 @@ cpp-wheel-impl/
 ```c
 cd cpp-wheel-impl/impl/string/build && make && ./bin/string_test
 
+cd /build
+
 make clean && make 2>&1 | grep -i warning || echo "No warnings found"
 
 valgrind --leak-check=full --show-leak-kinds=all ./bin/string_test 2>&1 | grep -E "(ERROR SUMMARY|definitely lost|indirectly lost|possibly lost)" || echo "Memory Leak"
