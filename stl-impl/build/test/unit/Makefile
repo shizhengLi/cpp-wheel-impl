@@ -168,6 +168,20 @@ iterator_test/fast:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/iterator_test.dir/build.make test/unit/CMakeFiles/iterator_test.dir/build
 .PHONY : iterator_test/fast
 
+# Convenience name for target.
+test/unit/CMakeFiles/vector_test.dir/rule:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/vector_test.dir/rule
+.PHONY : test/unit/CMakeFiles/vector_test.dir/rule
+
+# Convenience name for target.
+vector_test: test/unit/CMakeFiles/vector_test.dir/rule
+.PHONY : vector_test
+
+# fast build rule for target.
+vector_test/fast:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/vector_test.dir/build.make test/unit/CMakeFiles/vector_test.dir/build
+.PHONY : vector_test/fast
+
 allocator_test.o: allocator_test.cpp.o
 .PHONY : allocator_test.o
 
@@ -240,6 +254,30 @@ iterator_test.cpp.s:
 	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/iterator_test.dir/build.make test/unit/CMakeFiles/iterator_test.dir/iterator_test.cpp.s
 .PHONY : iterator_test.cpp.s
 
+vector_test.o: vector_test.cpp.o
+.PHONY : vector_test.o
+
+# target to build an object file
+vector_test.cpp.o:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/vector_test.dir/build.make test/unit/CMakeFiles/vector_test.dir/vector_test.cpp.o
+.PHONY : vector_test.cpp.o
+
+vector_test.i: vector_test.cpp.i
+.PHONY : vector_test.i
+
+# target to preprocess a source file
+vector_test.cpp.i:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/vector_test.dir/build.make test/unit/CMakeFiles/vector_test.dir/vector_test.cpp.i
+.PHONY : vector_test.cpp.i
+
+vector_test.s: vector_test.cpp.s
+.PHONY : vector_test.s
+
+# target to generate assembly for a file
+vector_test.cpp.s:
+	cd /data/lishizheng/cpp_projects/cpp-wheel-impl/stl-impl/build && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/vector_test.dir/build.make test/unit/CMakeFiles/vector_test.dir/vector_test.cpp.s
+.PHONY : vector_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -252,6 +290,7 @@ help:
 	@echo "... allocator_test"
 	@echo "... functional_test"
 	@echo "... iterator_test"
+	@echo "... vector_test"
 	@echo "... allocator_test.o"
 	@echo "... allocator_test.i"
 	@echo "... allocator_test.s"
@@ -261,6 +300,9 @@ help:
 	@echo "... iterator_test.o"
 	@echo "... iterator_test.i"
 	@echo "... iterator_test.s"
+	@echo "... vector_test.o"
+	@echo "... vector_test.i"
+	@echo "... vector_test.s"
 .PHONY : help
 
 

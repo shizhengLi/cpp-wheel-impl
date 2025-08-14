@@ -165,6 +165,19 @@ iterator_test/fast:
 	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/iterator_test.dir/build.make test/unit/CMakeFiles/iterator_test.dir/build
 .PHONY : iterator_test/fast
 
+#=============================================================================
+# Target rules for targets named vector_test
+
+# Build rule for target.
+vector_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 vector_test
+.PHONY : vector_test
+
+# fast build rule for target.
+vector_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/vector_test.dir/build.make test/unit/CMakeFiles/vector_test.dir/build
+.PHONY : vector_test/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -177,6 +190,7 @@ help:
 	@echo "... allocator_test"
 	@echo "... functional_test"
 	@echo "... iterator_test"
+	@echo "... vector_test"
 .PHONY : help
 
 
